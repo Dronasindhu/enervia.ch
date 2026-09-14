@@ -1,0 +1,2 @@
+const menu=document.querySelector('.menu');const mobile=document.querySelector('.mobileNav');if(menu&&mobile){menu.addEventListener('click',()=>mobile.classList.toggle('open'))}
+document.querySelectorAll('form[data-prototype]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();alert('Prototype: In production, this request would be saved in your CRM and trigger the qualification workflow.')}));
