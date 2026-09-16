@@ -70,6 +70,9 @@ footer{background:#0b1412;color:#d5dfdb;padding:50px 0 28px}.footgrid{display:gr
 /* Form field focus glow animation */
 .field input,.field select,.field textarea{transition:border-color .3s ease,box-shadow .3s ease}
 
+/* ── Language toggle ── */
+.langToggle{display:inline-flex;align-items:center;justify-content:center;min-width:48px;height:38px;padding:0 12px;border-radius:999px;border:1px solid #dce2e5;background:#fff;color:#3e4853;font:800 12px 'Manrope',sans-serif;letter-spacing:.08em;cursor:pointer;transition:border-color .2s ease,color .2s ease;flex-shrink:0}.langToggle:hover{border-color:var(--green);color:var(--green)}
+
 /* ── Reduced motion ── */
 @media(prefers-reduced-motion:reduce){.reveal,.reveal-scale{opacity:1;transform:none;transition:none}*{animation-duration:0s!important;transition-duration:0s!important}}
 

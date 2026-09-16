@@ -3,31 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Kostenloser Projektcheck für Solar, Klima und Service.">
-  <title>Projekt prüfen – HausEnergy</title>
+  <meta name="description" content="Kostenloser Projektcheck für Solar, Klima und Service." data-i18n-meta="meta.contact">
+  <title data-i18n="title.contact">Projekt prüfen – Enervia.ch</title>
   <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/i18n.js"></script>
 </head>
 <body>
-<div class="topbar">Greater Zurich · Unabhängige Projektbegleitung · Ausführung durch qualifizierte Partnerbetriebe</div>
+<div class="topbar" data-i18n="topbar">Greater Zurich · Unabhängige Projektbegleitung · Ausführung durch qualifizierte Partnerbetriebe</div>
 <header class="header">
   <div class="wrap nav">
-    <a class="brand" href="index.html">Haus<span>Energy</span></a>
+    <a class="brand" href="index.html">Enervia.ch</a>
     <nav class="navlinks">
-      <a href="solar.html">Solar</a>
-      <a href="klima.html">Klima</a>
-      <a href="service.html">Service</a>
-      <a href="partner.html">Partnernetzwerk</a>
-      <a href="about.html">Über uns</a>
+      <a href="solar.html" data-i18n="nav.solar">Solar</a>
+      <a href="klima.html" data-i18n="nav.klima">Klima</a>
+      <a href="service.html" data-i18n="nav.service">Service</a>
+      <a href="partner.html" data-i18n="nav.partner">Partnernetzwerk</a>
+      <a href="about.html" data-i18n="nav.about">Über uns</a>
     </nav>
-    <a class="btn dark" href="kontakt.html">Projekt prüfen →</a>
-    <button class="menu" aria-label="Menü">☰</button>
+    <button class="langToggle" aria-label="Language">EN</button>
+    <a class="btn dark" href="kontakt.html" data-i18n="nav.cta">Projekt prüfen →</a>
+    <button class="menu" data-i18n-aria="menu.label" aria-label="Menü">☰</button>
     <div class="mobileNav">
-      <a href="solar.html">Solar</a>
-      <a href="klima.html">Klima</a>
-      <a href="service.html">Service</a>
-      <a href="partner.html">Partnernetzwerk</a>
-      <a href="about.html">Über uns</a>
-      <a href="kontakt.html"><b>Projekt prüfen →</b></a>
+      <a href="solar.html" data-i18n="nav.solar">Solar</a>
+      <a href="klima.html" data-i18n="nav.klima">Klima</a>
+      <a href="service.html" data-i18n="nav.service">Service</a>
+      <a href="partner.html" data-i18n="nav.partner">Partnernetzwerk</a>
+      <a href="about.html" data-i18n="nav.about">Über uns</a>
+      <a href="kontakt.html"><b data-i18n="nav.cta">Projekt prüfen →</b></a>
     </div>
   </div>
 </header>
@@ -37,54 +39,54 @@
     <div class="wrap">
       <div class="sectionHead">
         <div>
-          <span class="pill">Projektcheck</span>
-          <h1 style="margin-top:18px">Was möchtest du zuhause verbessern?</h1>
+          <span class="pill" data-i18n="ck.pill">Projektcheck</span>
+          <h1 style="margin-top:18px" data-i18n="ck.h1">Was möchtest du zuhause verbessern?</h1>
         </div>
-        <p>In zwei Minuten wissen wir genug, um den richtigen nächsten Schritt vorzuschlagen.</p>
+        <p data-i18n="ck.p">In zwei Minuten wissen wir genug, um den richtigen nächsten Schritt vorzuschlagen.</p>
       </div>
 
       <!-- Form with added name attributes -->
       <form class="quoteForm">
         <div class="field">
-          <label>Projekt</label>
+          <label data-i18n="ck.label.type">Projekt</label>
           <select name="type">
-            <option value="Solar">Solar</option>
-            <option value="Klimaanlage">Klimaanlage</option>
-            <option value="Solar + Klima">Solar + Klima</option>
-            <option value="Service">Service</option>
+            <option value="Solar" data-i18n="ck.opt.solar">Solar</option>
+            <option value="Klimaanlage" data-i18n="ck.opt.climate">Klimaanlage</option>
+            <option value="Solar + Klima" data-i18n="ck.opt.both">Solar + Klima</option>
+            <option value="Service" data-i18n="ck.opt.service">Service</option>
           </select>
         </div>
         <div class="field">
-          <label>PLZ</label>
-          <input name="plz" required placeholder="8001">
+          <label data-i18n="ck.label.plz">PLZ</label>
+          <input name="plz" required placeholder="8001" data-i18n-placeholder="ck.placeholder.plz">
         </div>
         <div class="field">
-          <label>Vorname</label>
-          <input name="firstName" required placeholder="Anna">
+          <label data-i18n="ck.label.firstName">Vorname</label>
+          <input name="firstName" required placeholder="Anna" data-i18n-placeholder="ck.placeholder.firstName">
         </div>
         <div class="field">
-          <label>Nachname</label>
-          <input name="lastName" required placeholder="Müller">
+          <label data-i18n="ck.label.lastName">Nachname</label>
+          <input name="lastName" required placeholder="Müller" data-i18n-placeholder="ck.placeholder.lastName">
         </div>
         <div class="field">
-          <label>E-Mail</label>
-          <input name="email" type="email" required placeholder="anna@example.ch">
+          <label data-i18n="ck.label.email">E-Mail</label>
+          <input name="email" type="email" required placeholder="anna@example.ch" data-i18n-placeholder="ck.placeholder.email">
         </div>
         <div class="field">
-          <label>Telefon</label>
-          <input name="phone" placeholder="+41 79 000 00 00">
+          <label data-i18n="ck.label.phone">Telefon</label>
+          <input name="phone" placeholder="+41 79 000 00 00" data-i18n-placeholder="ck.placeholder.phone">
         </div>
         <div class="field full">
-          <label>Erzähl uns kurz von deinem Projekt</label>
-          <textarea name="message" placeholder="Zum Beispiel: Einfamilienhaus, ca. 6'000 kWh Stromverbrauch, Interesse an Solar + Batterie …"></textarea>
+          <label data-i18n="ck.label.message">Erzähl uns kurz von deinem Projekt</label>
+          <textarea name="message" placeholder="Zum Beispiel: Einfamilienhaus, ca. 6'000 kWh Stromverbrauch, Interesse an Solar + Batterie …" data-i18n-placeholder="ck.placeholder.message"></textarea>
         </div>
         <div class="field full">
-          <label>Fotos / Dokumente</label>
+          <label data-i18n="ck.label.upload">Fotos / Dokumente</label>
           <input type="file" multiple>
         </div>
         <div class="field full">
-          <div class="notice" id="formNotice">Prototyp: Übermittlung an Google Sheets ist aktiv.</div>
-          <button class="btn green" type="submit" style="margin-top:14px">Projekt kostenlos prüfen →</button>
+          <div class="notice" id="formNotice" data-i18n="ck.notice">Prototyp: Übermittlung an Google Sheets ist aktiv.</div>
+          <button class="btn green" type="submit" style="margin-top:14px" data-i18n="ck.submit">Projekt kostenlos prüfen →</button>
         </div>
       </form>
     </div>
@@ -95,31 +97,31 @@
   <div class="wrap">
     <div class="footgrid">
       <div>
-        <a class="brand" href="index.html" style="color:#fff">Haus<span>Energy</span></a>
-        <p style="color:#85968f;max-width:320px;line-height:1.6">Wir helfen dir, die passende Energielösung zu finden, vergleichen geeignete Partner und koordinieren dein Projekt.</p>
+        <a class="brand" href="index.html" style="color:#fff">Enervia.ch</a>
+        <p style="color:#85968f;max-width:320px;line-height:1.6" data-i18n="footer.desc">Wir helfen dir, die passende Energielösung zu finden, vergleichen geeignete Partner und koordinieren dein Projekt.</p>
       </div>
       <div>
-        <h4>Lösungen</h4>
+        <h4 data-i18n="footer.solutions">Lösungen</h4>
         <a href="solar.html">Solar</a>
-        <a href="klima.html">Klimaanlage</a>
-        <a href="service.html">Service & Wartung</a>
+        <a href="klima.html" data-i18n="footer.klima">Klimaanlage</a>
+        <a href="service.html" data-i18n="footer.service">Service & Wartung</a>
       </div>
       <div>
-        <h4>HausEnergy</h4>
-        <a href="about.html">Über uns</a>
-        <a href="partner.html">Partnernetzwerk</a>
-        <a href="kontakt.html">Kontakt</a>
+        <h4>Enervia.ch</h4>
+        <a href="about.html" data-i18n="nav.about">Über uns</a>
+        <a href="partner.html" data-i18n="nav.partner">Partnernetzwerk</a>
+        <a href="kontakt.html" data-i18n="footer.contact">Kontakt</a>
       </div>
       <div>
-        <h4>Wichtig</h4>
-        <a href="#">Datenschutz</a>
-        <a href="#">Impressum</a>
-        <a href="#">AGB</a>
+        <h4 data-i18n="footer.legal">Wichtig</h4>
+        <a href="#" data-i18n="footer.privacy">Datenschutz</a>
+        <a href="#" data-i18n="footer.imprint">Impressum</a>
+        <a href="#" data-i18n="footer.terms">AGB</a>
       </div>
     </div>
     <div class="footbottom">
-      <div>© 2026 HausEnergy · Prototype</div>
-      <div>Regulierte Installationsarbeiten werden durch entsprechend qualifizierte Partnerbetriebe ausgeführt.</div>
+      <div>© 2026 Enervia.ch · Prototype</div>
+      <div data-i18n="footer.disclaimer">Regulierte Installationsarbeiten werden durch entsprechend qualifizierte Partnerbetriebe ausgeführt.</div>
     </div>
   </div>
 </footer>
@@ -132,12 +134,13 @@
     const form = document.querySelector("form.quoteForm");
     
     if (form) {
+      const t = window.EnerviaI18n ? window.EnerviaI18n.t.bind(window.EnerviaI18n) : (k) => k;
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
         
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
-        submitBtn.textContent = "Wird gesendet...";
+        submitBtn.textContent = t('ck.sending');
         submitBtn.disabled = true;
 
         const formData = {
@@ -163,11 +166,11 @@
             body: JSON.stringify(formData)
           });
 
-          alert("Vielen Dank! Deine Anfrage wurde erfolgreich gesendet.");
+          alert(t('ck.success'));
           form.reset();
         } catch (err) {
           console.error("Fehler beim Senden:", err);
-          alert("Es gab einen Fehler beim Senden. Bitte versuche es später noch einmal.");
+          alert(t('ck.error'));
         } finally {
           submitBtn.textContent = originalText;
           submitBtn.disabled = false;
