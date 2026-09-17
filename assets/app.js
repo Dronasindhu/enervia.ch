@@ -101,3 +101,26 @@ document.querySelectorAll('form[data-prototype]').forEach(f =>
     });
   }, 80);
 })();
+
+// ── Hero carousel (homepage) ──
+(function () {
+  const root = document.querySelector('.heroCarousel');
+  if (!root) return;
+  const slides = root.querySelectorAll('.hslide');
+  const dots = root.querySelectorAll('.heroDots .dot');
+  if (!slides.length) return;
+  let idx = 0, timer = null;
+  const go = (n) => {
+    slides[idx].classList.remove('active');
+    if (dots[idx]) dots[idx].classList.remove('active');
+    idx = (n + slides.length) % slides.length;
+    slides[idx].classList.add('active');
+    if (dots[idx]) dots[idx].classList.add('active');
+  };
+  const restart = () => {
+    if (timer) clearInterval(timer);
+    timer = setInterval(() => go(idx + 1), 4200);
+  };
+  dots.forEach((d, i) => d.addEventListener('click', () => { go(i); restart(); }));
+  restart();
+})();
