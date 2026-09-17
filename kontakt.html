@@ -339,6 +339,9 @@
     };
     const PV_LABEL = { c1: "s1.cons.1", c2: "s1.cons.2", c3: "s1.cons.3", c4: "s1.cons.4" };
 
+    const ZH = /^8\d{3}$/;
+    const AG = /^5[03456]\d{2}$/;
+    const REGION = new RegExp(ZH.source + '|' + AG.source);
     let pos = 0;
     let selectedGoal = null;
     let track = typeSel.value;
@@ -445,7 +448,9 @@
         else if (track === "Solar + Klima") { if (!chipVal("consumption") || !chipVal("rooms")) return t("est.need"); }
       } else if (phys === 1) {
         const plzEl = document.getElementById("plzInput");
-        if (!/^\d{4}$/.test(plzEl.value.trim())) return t("est.plz");
+        const plz = plzEl.value.trim();
+        if (!/^\d{4}$/.test(plz)) return t("est.plz");
+        if (!REGION.test(plz)) return t("est.plz.region");
       } else if (phys === 3) {
         if (!selectedGoal) return t("est.need");
       }
