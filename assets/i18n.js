@@ -195,6 +195,7 @@
       'ck.email.title': 'Lieber direkt per E-Mail kontaktieren?',
       'ck.email.sub': 'Schreibe uns jederzeit direkt — wir antworten in der Regel innert 24 Stunden.',
       'ck.email.btn': 'E-Mail schreiben',
+      'ck.email.copied': 'E-Mail-Adresse kopiert',
       // estimate wizard + hero slides
       'hero.slide1': 'Photovoltaik 5 kWp · Einfamilienhaus',
       'hero.slide2': 'Klimaanlage · 2 Räume · Wohnung',
@@ -488,6 +489,7 @@
       'ck.email.title': 'Prefer to contact us directly by email?',
       'ck.email.sub': 'Email us any time — we usually reply within 24 hours.',
       'ck.email.btn': 'Write an email',
+      'ck.email.copied': 'Email address copied',
       // estimate wizard + hero slides
       'hero.slide1': 'Photovoltaic 5 kWp · Single-family house',
       'hero.slide2': 'Air conditioning · 2 rooms · Apartment',
