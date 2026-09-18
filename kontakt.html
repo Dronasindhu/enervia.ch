@@ -318,6 +318,9 @@
     const submit = document.getElementById("estSubmit");
     const errNodes = form.querySelectorAll("[data-err]");
     const typeSel = document.getElementById("estType");
+    const TYPE_MAP = { solar: "Solar", klima: "Klimaanlage", service: "Service", both: "Solar + Klima" };
+    const typeParam = new URLSearchParams(location.search).get("type");
+    if (typeParam && TYPE_MAP[typeParam]) typeSel.value = TYPE_MAP[typeParam];
     const s3Title = document.getElementById("s3Title");
 
     const GOALS = {
