@@ -1,10 +1,3 @@
-// ── Mobile menu toggle ──
-const menu = document.querySelector('.menu');
-const mobile = document.querySelector('.mobileNav');
-if (menu && mobile) {
-  menu.addEventListener('click', () => mobile.classList.toggle('open'));
-}
-
 // ── Prototype form handler ──
 document.querySelectorAll('form[data-prototype]').forEach(f =>
   f.addEventListener('submit', e => {
