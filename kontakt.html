@@ -48,16 +48,6 @@
 <p data-i18n="ck.p">Kurze Antworten, live Richtpreis, danach Festofferte — innert 24 Stunden. Unverbindlich.</p>
     </div>
 
-    <div class="gis-panel" style="margin-top:20px;padding:28px;border-radius:20px;background:#fff;border:1px solid var(--border)">
-      <h2 style="margin:0 0 12px;font-size:20px" data-i18n="gis.title">Standortanalyse</h2>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-        <input class="estInput" id="gisPlz" type="text" inputmode="numeric" maxlength="4" placeholder="8001" data-i18n-placeholder="gis.plz" style="max-width:150px">
-        <button class="btn dark" type="button" id="gisBtn" data-i18n="gis.analyse">Standort analysieren</button>
-        <span id="gisStatus" style="font-size:13px;color:var(--muted)"></span>
-      </div>
-      <div id="gisResults" style="display:none;margin-top:16px"></div>
-    </div>
-
     <form class="estimate" id="estimate" novalidate>
         <div class="estHead">
           <span class="estTitle" data-i18n="est.title">Estimate — 2 Minuten</span>
@@ -598,14 +588,22 @@ const dossierBtn = document.getElementById('dossierBtn');
     dossierBtn.addEventListener('click', () => {
       const div = document.getElementById('dossier');
       const sa = siteAnalysis || {};
+      const plzVal = document.getElementById('plzInput').value.trim() || '-';
       const rows = [
         ['Projekt', typeSel.value],
-        ['PLZ', document.getElementById('plzInput').value.trim() || '-'],
-        ['Geschätzte Dachfläche', Math.round(sa.roofArea||0).toLocaleString() + ' m²'],
-        ['Geschätzter Ertrag', '~' + Math.round(sa.yieldKwh||0).toLocaleString() + ' kWh/yr'],
-        ['GHI (geschätzt)', Math.round(sa.ghi||0) + ' kWh/m²/yr'],
-        ['Preisspanne', ballparkPrice(sa.yieldKwh||0)],
+        ['PLZ', plzVal],
       ];
+      if (sa.yieldKwh) {
+        rows.push(
+          ['Geschätzte Dachfläche', Math.round(sa.roofArea||0).toLocaleString() + ' m²'],
+          ['Geschätzter Ertrag', '~' + Math.round(sa.yieldKwh).toLocaleString() + ' kWh/yr'],
+          ['GHI (geschätzt)', Math.round(sa.ghi||0) + ' kWh/m²/yr'],
+          ['Preisspanne', ballparkPrice(sa.yieldKwh)],
+        );
+      } else {
+        const rv = document.getElementById('rangeVal');
+        if (rv && rv.textContent.trim()) rows.push(['Richtbereich', rv.textContent.trim()]);
+      }
       div.innerHTML = '<div style="font-family:sans-serif;padding:24px;max-width:210px;margin:0 auto"><h2 style="font-size:18px;margin:0 0 12px">Dossier — Enervia.ch</h2><p style="font-size:11px;color:#666">Generiert '+new Date().toLocaleDateString('de-CH')+'</p><table style="width:100%;font-size:13px;border-collapse:collapse;margin-top:12px">' + rows.map(([a,b]) => '<tr><td style="padding:5px;border-bottom:1px solid #eee;font-weight:600">' + a + '</td><td style="padding:5px;border-bottom:1px solid #eee">' + b + '</td></tr>').join('') + '</table><p style="font-size:11px;color:#666;margin-top:12px">Enervia.ch · +41 77 974 39 14 · enervia.ch@gmail.com</p></div>';
       if (window.html2pdf) { html2pdf().set({margin:0,filename:'dossier-enervia',html2canvas:{scale:2},jsPDF:{orientation:'portrait',unit:'mm',format:'a4'}}).from(div).save(); }
       else { alert(t('docs.error')); }
@@ -637,82 +635,7 @@ const dossierBtn = document.getElementById('dossierBtn');
     applyTrack();
     renderGoals();
 
-    // --- Standortanalyse (GIS) ---
-    function polygonAreaM2(ring, lat0) {
-      let a = 0; const n = ring.length;
-      for (let i = 0; i < n; i++) { const j = (i+1)%n; a += ring[i][0]*ring[j][1] - ring[j][0]*ring[i][1]; }
-      a = Math.abs(a)/2;
-      return a*111320*111320*Math.cos(lat0*Math.PI/180);
-    }
-    function polygonOrientation(ring, lat0) {
-      const base = ring[0];
-      const pts = ring.map(([lon,lat])=>[(lon-base[0])*111320*Math.cos(lat0*Math.PI/180),(lat-base[1])*111320]);
-      const n = pts.length, mx = pts.reduce((s,p)=>s+p[0],0)/n, my = pts.reduce((s,p)=>s+p[1],0)/n;
-      let cx=0,cy=0,cxy=0;
-      for (const [x,y] of pts) { cx+=(x-mx)**2; cy+=(y-my)**2; cxy+=(x-mx)*(y-my); }
-      const theta = 0.5*Math.atan2(2*cxy/n, (cx-cy)/n);
-      let bearing = ((90-theta*180/Math.PI)+360)%360;
-      return ['N','O','S','W'][Math.round(bearing/90)%4];
-    }
-    function centroidDist(ring, lat0) {
-      const n = ring.length, cx = ring.reduce((s,c)=>s+c[0],0)/n, cy = ring.reduce((s,c)=>s+c[1],0)/n;
-      const dx=(cx-lon0)*111320*Math.cos(lat0*Math.PI/180), dy=(cy-lat0)*111320;
-      return Math.sqrt(dx*dx+dy*dy);
-    }
-    function estimateGHI(lat) { return Math.max(950, 1220-(lat-47)*25); }
     function ballparkPrice(kwh) { return `CHF ${Math.round(kwh*1.9).toLocaleString()} – ${Math.round(kwh*2.4).toLocaleString()}`; }
-
-    const gisBtn = document.getElementById('gisBtn');
-    const gisPlz = document.getElementById('gisPlz');
-    const gisStatus = document.getElementById('gisStatus');
-    const gisResults = document.getElementById('gisResults');
-
-    async function analyseSite() {
-      const plz = gisPlz.value.trim();
-      if (!plz || !/^\d{4}$/.test(plz)) { gisStatus.textContent = t('gis.enterPlz'); return; }
-      gisStatus.textContent = t('gis.loading'); gisResults.style.display = 'none';
-      try {
-        const geo = await (await fetch(`https://geocode.geo.admin.ch/geocode?search=${plz}&type=locations&layers=address`)).json();
-        const coord = geo.results?.[0]?.geometry?.coordinates;
-        if (!coord) throw new Error('geo');
-        const lon0 = coord[0], lat0 = coord[1];
-        const stac = await (await fetch(`https://data.geo.admin.ch/api/stac/v1/collections/ch.swisstopo.swissbuildings3d_2/items?bbox=${(lon0-0.003).toFixed(4)},${(lat0-0.003).toFixed(4)},${(lon0+0.003).toFixed(4)},${(lat0+0.003).toFixed(4)}&limit=10&f=json`)).json();
-        let best = null, bestDist = Infinity, bestArea = Infinity;
-        for (const f of (stac.features||[])) {
-          const ring = f.geometry?.coordinates?.[0];
-          if (!ring) continue;
-          const area = polygonAreaM2(ring, lat0);
-          if (area < 30 || area > 6000) continue;
-          const d = centroidDist(ring, lat0);
-          if (d < bestDist) { bestDist = d; bestArea = area; best = { ring, area }; }
-        }
-        if (!best) throw new Error('nobldg');
-        const roofArea = best.area*1.15;
-        const orient = polygonOrientation(best.ring, lat0);
-        let ghi, yieldKwh;
-        try {
-          const pv = await (await fetch(`https://pvgis.ec.europa.eu/api/v5_2/getpvcalc?lat=${lat0.toFixed(4)}&lon=${lon0.toFixed(4)}&outputformat=json&startyear=2020&system=0&loss=14&outputsize=0`)).json();
-          const Out = pv.Output||{};
-          const pvGHI = Array.isArray(Out.GHI)?Out.GHI.reduce((a,b)=>a+b,0)/Out.GHI.length:Out.GHI;
-          const pvYield = Array.isArray(Out.P90)?Out.P90.reduce((a,b)=>a+b,0)/Out.P90.length:Out.P90;
-          ghi = pvGHI||estimateGHI(lat0); yieldKwh = pvYield||Math.round(roofArea*ghi*0.18*0.82);
-        } catch { ghi = estimateGHI(lat0); yieldKwh = Math.round(roofArea*ghi*0.18*0.82); }
-        siteAnalysis = {ghi, yieldKwh, roofArea, orient};
-        gisResults.style.display = 'block';
-        gisResults.innerHTML = `<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:14px">
-          <div><b data-i18n="gis.buildings">Buildings</b>: <span>${t('gis.nearest')}</span></div>
-          <div><b data-i18n="gis.footprint">Footprint</b>: <span>${Math.round(best.area).toLocaleString()} m²</span></div>
-          <div><b data-i18n="gis.roofArea">Roof area</b>: <span>${Math.round(roofArea).toLocaleString()} m²</span></div>
-          <div><b data-i18n="gis.orientation">Orientation</b>: <span>${orient}</span></div>
-          <div><b data-i18n="gis.radiation">GHI</b>: <span>${Math.round(ghi)} kWh/m²/yr</span></div>
-          <div><b data-i18n="gis.yield">Yield</b>: <span>~${yieldKwh.toLocaleString()} kWh/yr</span></div>
-          <div style="grid-column:1/-1"><b data-i18n="gis.price">Price</b>: <span style="font-weight:600">${ballparkPrice(yieldKwh)}</span></div>
-        </div>`;
-        gisStatus.textContent = '';
-        if (window.EnerviaI18n) window.EnerviaI18n.apply(window.EnerviaI18n.getLang());
-      } catch(e) { gisStatus.textContent = t('gis.error'); }
-    }
-    gisBtn.addEventListener('click', analyseSite);
 
     render();
   });

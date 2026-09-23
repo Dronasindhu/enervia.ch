@@ -86,7 +86,7 @@ footer{background:#0f1111;color:#d5dfdb;padding:56px 0 28px}.footgrid{display:gr
 /* ── Touch targets ── */
 .navlinks a,.langToggle,.chip,.btn,.estNav .back,.footgrid a,.menu{min-height:44px}
 /* ── Kontakt rhythm ── */
-.gis-panel,.emailcta,.docs{max-width:760px;margin-left:auto;margin-right:auto}
+.emailcta,.docs{max-width:760px;margin-left:auto;margin-right:auto}
 .estNav{justify-content:flex-start;flex-wrap:wrap}
 .estNav .back{margin-right:auto}
 .docsGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;font-size:14px}
