@@ -48,11 +48,11 @@
 <p data-i18n="ck.p">Kurze Antworten, live Richtpreis, danach Festofferte — innert 24 Stunden. Unverbindlich.</p>
     </div>
 
-    <div class="gis-panel" style="margin-top:18px;padding:22px;border-radius:20px;background:#fff;border:1px solid var(--border)">
-      <h2 style="margin:0 0 12px;font-size:21px" data-i18n="gis.title">Standortanalyse</h2>
+    <div class="gis-panel" style="margin-top:20px;padding:28px;border-radius:20px;background:#fff;border:1px solid var(--border)">
+      <h2 style="margin:0 0 12px;font-size:20px" data-i18n="gis.title">Standortanalyse</h2>
       <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
         <input class="estInput" id="gisPlz" type="text" inputmode="numeric" maxlength="4" placeholder="8001" data-i18n-placeholder="gis.plz" style="max-width:150px">
-        <button class="btn dark" type="button" id="gisBtn" data-i18n="gis.analyse">Analyze site</button>
+        <button class="btn dark" type="button" id="gisBtn" data-i18n="gis.analyse">Standort analysieren</button>
         <span id="gisStatus" style="font-size:13px;color:var(--muted)"></span>
       </div>
       <div id="gisResults" style="display:none;margin-top:16px"></div>
@@ -267,22 +267,24 @@
 
         <div class="notice" style="margin-top:16px" data-i18n="ck.notice">Deine Anfrage geht direkt an unser Projektteam. Antwort innert 24 Stunden.</div>
       </form>
-      <div class="contactInfo" style="text-align:center;padding:18px 0 6px;border-top:1px solid #E8E6E0;margin-top:18px;color:#85968f;font-size:13px"><a href="tel:+41779743914" style="color:#85968f;margin-right:20px;text-decoration:none">+41 77 974 39 14</a><a href="mailto:enervia.ch@gmail.com" style="color:#85968f;text-decoration:none">enervia.ch@gmail.com</a></div>
-      <div class="emailcta" style="margin-top:26px;padding:28px;border-radius:20px;background:var(--sage-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <div class="emailcta" style="margin-top:20px;padding:28px;border-radius:20px;background:var(--sage-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
         <div>
           <h3 style="margin:0 0 6px;font-size:20px" data-i18n="ck.email.title">Lieber direkt per E-Mail kontaktieren?</h3>
           <p style="margin:0;color:var(--muted);font-size:14px;max-width:480px" data-i18n="ck.email.sub">Schreibe uns jederzeit direkt — wir antworten in der Regel innert 24 Stunden.</p>
         </div>
-        <a class="btn dark" href="https://mail.google.com/mail/?view=cm&fs=1&to=enervia.ch@gmail.com&su=Anfrage%20via%20enervia.ch" target="_blank" rel="noopener" data-i18n="ck.email.btn">E-Mail schreiben</a>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn dark" href="https://mail.google.com/mail/?view=cm&fs=1&to=enervia.ch@gmail.com&su=Anfrage%20via%20enervia.ch" target="_blank" rel="noopener" data-i18n="ck.email.btn">E-Mail schreiben</a>
+          <a class="btn ghost" href="tel:+41779743914">+41 77 974 39 14</a>
+        </div>
       </div>
-      <div class="docs" style="margin-top:20px;padding:22px;border-radius:20px;background:#fff;border:1px solid var(--border)">
-        <h2 style="margin:0 0 6px;font-size:21px" data-i18n="docs.title">Dokumentation</h2>
+      <div class="docs" style="margin-top:20px;padding:28px;border-radius:20px;background:#fff;border:1px solid var(--border)">
+        <h2 style="margin:0 0 6px;font-size:20px" data-i18n="docs.title">Dokumentation</h2>
         <p style="margin:0 0 14px;color:var(--muted);font-size:14px" data-i18n="docs.sub">Fotos des Sicherungskastens, des Heizraums, des Daches und der Fassade helfen, dein Projekt genauer einzuschätzen.</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;font-size:14px">
-          <div><label style="font-weight:600" data-i18n="docs.s3.elec">Sicherungskasten</label><input type="file" accept="image/*" multiple data-docs="elec" style="margin:6px 0;width:100%"><div style="font-size:12px;color:var(--muted)" data-i18n="docs.s3.elec.note">Leistung, Alter, Sicherungsanzahl.</div></div>
-          <div><label style="font-weight:600" data-i18n="docs.s3.heating">Heizraum</label><input type="file" accept="image/*" multiple data-docs="heating" style="margin:6px 0;width:100%"><div style="font-size:12px;color:var(--muted)" data-i18n="docs.s3.heating.note">Boiler, Wärmepumpe, Alter.</div></div>
-          <div><label style="font-weight:600" data-i18n="docs.s3.roof">Dach & Fassade</label><input type="file" accept="image/*" multiple data-docs="roof" style="margin:6px 0;width:100%"><div style="font-size:12px;color:var(--muted)" data-i18n="docs.s3.roof.note">Zustand, Ausrichtung, Verschattung.</div></div>
-          <div><label style="font-weight:600" data-i18n="docs.s3.facade">Fassade</label><input type="file" accept="image/*" multiple data-docs="facade" style="margin:6px 0;width:100%"><div style="font-size:12px;color:var(--muted)" data-i18n="docs.s3.facade.note">Material, Isolation, Fenster.</div></div>
+        <div class="docsGrid">
+          <div><label data-i18n="docs.s3.elec">Sicherungskasten</label><input type="file" accept="image/*" multiple data-docs="elec"><div class="docNote" data-i18n="docs.s3.elec.note">Leistung, Alter, Sicherungsanzahl.</div></div>
+          <div><label data-i18n="docs.s3.heating">Heizraum</label><input type="file" accept="image/*" multiple data-docs="heating"><div class="docNote" data-i18n="docs.s3.heating.note">Boiler, Wärmepumpe, Alter.</div></div>
+          <div><label data-i18n="docs.s3.roof">Dach & Fassade</label><input type="file" accept="image/*" multiple data-docs="roof"><div class="docNote" data-i18n="docs.s3.roof.note">Zustand, Ausrichtung, Verschattung.</div></div>
+          <div><label data-i18n="docs.s3.facade">Fassade</label><input type="file" accept="image/*" multiple data-docs="facade"><div class="docNote" data-i18n="docs.s3.facade.note">Material, Isolation, Fenster.</div></div>
         </div>
         <div style="margin-top:14px;font-size:13px;color:var(--muted)" data-i18n="docs.ai.hint">KI-Auswertung: wir analysieren die Fotos nach Dachform, Anlagengrösse und Heiztyp.</div>
       </div>
@@ -698,15 +700,16 @@ const dossierBtn = document.getElementById('dossierBtn');
         siteAnalysis = {ghi, yieldKwh, roofArea, orient};
         gisResults.style.display = 'block';
         gisResults.innerHTML = `<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:14px">
-          <div><b data-i18n="gis.buildings">Buildings</b>: <span>1 (nächste)</span></div>
+          <div><b data-i18n="gis.buildings">Buildings</b>: <span>${t('gis.nearest')}</span></div>
           <div><b data-i18n="gis.footprint">Footprint</b>: <span>${Math.round(best.area).toLocaleString()} m²</span></div>
           <div><b data-i18n="gis.roofArea">Roof area</b>: <span>${Math.round(roofArea).toLocaleString()} m²</span></div>
-          <div><b data-i18n="gis.orientation">Orientation</b>: <span>${orient} (geschätzt)</span></div>
+          <div><b data-i18n="gis.orientation">Orientation</b>: <span>${orient}</span></div>
           <div><b data-i18n="gis.radiation">GHI</b>: <span>${Math.round(ghi)} kWh/m²/yr</span></div>
           <div><b data-i18n="gis.yield">Yield</b>: <span>~${yieldKwh.toLocaleString()} kWh/yr</span></div>
           <div style="grid-column:1/-1"><b data-i18n="gis.price">Price</b>: <span style="font-weight:600">${ballparkPrice(yieldKwh)}</span></div>
         </div>`;
         gisStatus.textContent = '';
+        if (window.EnerviaI18n) window.EnerviaI18n.apply(window.EnerviaI18n.getLang());
       } catch(e) { gisStatus.textContent = t('gis.error'); }
     }
     gisBtn.addEventListener('click', analyseSite);
