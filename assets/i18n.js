@@ -192,6 +192,7 @@
       'w.s6.o3': '3–6 Monate',
       'w.s6.o4': '> 6 Monate',
       'w.s7.q': 'Deine Daten',
+      'w.s7.desc': 'Bitte teile uns deine Kontaktdaten mit, damit wir dir die massgeschneiderte Festofferte zustellen können.',
       // contact
       'title.contact': 'Projekt anfragen – Enervia.ch',
       'meta.contact': 'Kostenlose Festofferte für Solar und Klima in Greater Zurich.',
@@ -531,6 +532,7 @@
       'w.s6.o3': '3–6 months',
       'w.s6.o4': '> 6 months',
       'w.s7.q': 'Your details',
+      'w.s7.desc': 'Please share your contact details so we can send you the tailored fixed-price quote.',
       // contact
       'title.contact': 'Start your project – Enervia.ch',
       'meta.contact': 'Free fixed-price quote for solar and climate in Greater Zurich.',
