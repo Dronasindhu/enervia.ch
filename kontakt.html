@@ -40,214 +40,102 @@
     </div>
 
     <form class="estimate" id="estimate" novalidate>
-        <div class="estHead">
-          <span class="estTitle" data-i18n="est.title">Estimate — 2 Minuten</span>
-          <span class="estCount" id="estCount">Schritt 1 von 6</span>
-        </div>
-        <div class="estDots" id="estDots"></div>
+      <div class="estHead">
+        <span class="estTitle" data-i18n="est.title">Richtwert — 3 Minuten</span>
+        <span class="estCount" id="estCount"></span>
+      </div>
+      <div class="estDots" id="estDots"></div>
 
-        <div class="field full" style="margin-top:10px">
-          <label data-i18n="ck.label.type">Projekt</label>
-          <select name="type" id="estType">
-            <option value="Klimaanlage" data-i18n="ck.opt.climate">Klimaanlage</option>
-            <option value="Solar" data-i18n="ck.opt.solar">Solar</option>
-            <option value="Solar + Klima" data-i18n="ck.opt.both">Solar + Klima</option>
-            <option value="Service" data-i18n="ck.opt.service">Service</option>
-          </select>
+      <div class="estStep on" data-step="1">
+        <h3 data-i18n="w.s1.q">Was suchst du?</h3>
+        <div class="chips chips-single" data-name="service">
+          <button type="button" class="chip" data-value="Solar" data-key="w.s1.o1"><i class="fa-solid fa-solar-panel"></i> Solar</button>
+          <button type="button" class="chip" data-value="Klima" data-key="w.s1.o2"><i class="fa-solid fa-snowflake"></i> Klima</button>
+          <button type="button" class="chip" data-value="Solar + Klima" data-key="w.s1.o3"><i class="fa-solid fa-cloud-sun"></i> Solar + Klima</button>
+          <button type="button" class="chip" data-value="Service" data-key="w.s1.o4"><i class="fa-solid fa-wrench"></i> Service</button>
         </div>
+      </div>
 
-        <div class="estStep on" data-step="1">
-          <h3 data-i18n="s1.title">Was planst du?</h3>
-          <div data-track="k">
-            <div class="estLabel" data-i18n="s1.btype">Gebäudetyp</div>
-            <div class="chips chips-single" data-name="building">
-              <button type="button" class="chip on" data-value="Wohnung" data-key="s1.bt.1" data-i18n="s1.bt.1">Wohnung</button>
-              <button type="button" class="chip" data-value="Haus" data-key="s1.bt.2" data-i18n="s1.bt.2">Haus</button>
-              <button type="button" class="chip" data-value="Gewerbe" data-key="s1.bt.3" data-i18n="s1.bt.3">Gewerbe</button>
-              <button type="button" class="chip" data-value="Anderes" data-key="s1.bt.4" data-i18n="s1.bt.4">Anderes</button>
-            </div>
-            <div class="estLabel" data-i18n="s1.rooms">Anzahl Räume</div>
-            <div class="chips chips-single" data-name="rooms">
-              <button type="button" class="chip" data-value="1">1</button>
-              <button type="button" class="chip" data-value="2">2</button>
-              <button type="button" class="chip" data-value="3">3</button>
-              <button type="button" class="chip" data-value="4">4</button>
-              <button type="button" class="chip" data-value="5">5+</button>
-            </div>
-            <div class="estLabel" data-i18n="s1.what">Welche Räume?</div>
-            <div class="chips" data-name="roomType" data-multi="1">
-              <button type="button" class="chip" data-value="Wohnzimmer" data-key="s1.w.1" data-i18n="s1.w.1">Wohnzimmer</button>
-              <button type="button" class="chip" data-value="Schlafzimmer" data-key="s1.w.2" data-i18n="s1.w.2">Schlafzimmer</button>
-              <button type="button" class="chip" data-value="Büro" data-key="s1.w.3" data-i18n="s1.w.3">Büro</button>
-              <button type="button" class="chip" data-value="Mehrere" data-key="s1.w.4" data-i18n="s1.w.4">Mehrere / ganze Wohnung</button>
-            </div>
-          </div>
-          <div data-track="s" style="display:none">
-            <div class="estLabel" data-i18n="s1.dach">Dachform</div>
-            <div class="chips chips-single" data-name="roof">
-              <button type="button" class="chip" data-value="Satteldach" data-key="s1.dach.1" data-i18n="s1.dach.1">Satteldach</button>
-              <button type="button" class="chip" data-value="Flachdach" data-key="s1.dach.2" data-i18n="s1.dach.2">Flachdach</button>
-              <button type="button" class="chip" data-value="Pultdach" data-key="s1.dach.3" data-i18n="s1.dach.3">Pultdach</button>
-              <button type="button" class="chip" data-value="Weiss nicht" data-key="s3.u" data-i18n="s3.u">Weiss nicht</button>
-            </div>
-            <div class="estLabel" data-i18n="s1.dir">Dachausrichtung</div>
-            <div class="chips chips-single" data-name="orientation">
-              <button type="button" class="chip" data-value="Süd" data-key="s1.dir.1" data-i18n="s1.dir.1">Süd</button>
-              <button type="button" class="chip" data-value="Ost / West" data-key="s1.dir.2" data-i18n="s1.dir.2">Ost / West</button>
-              <button type="button" class="chip" data-value="Nord" data-key="s1.dir.3" data-i18n="s1.dir.3">Nord</button>
-              <button type="button" class="chip" data-value="Gemischt" data-key="s1.dir.4" data-i18n="s1.dir.4">Gemischt</button>
-              <button type="button" class="chip" data-value="Weiss nicht" data-key="s3.u" data-i18n="s3.u">Weiss nicht</button>
-            </div>
-            <div class="estLabel" data-i18n="s1.cons">Stromverbrauch pro Jahr</div>
-            <div class="chips chips-single" data-name="consumption">
-              <button type="button" class="chip" data-value="c1" data-key="s1.cons.1" data-i18n="s1.cons.1">&lt;3'000 kWh</button>
-              <button type="button" class="chip" data-value="c2" data-key="s1.cons.2" data-i18n="s1.cons.2">3'000–6'000 kWh</button>
-              <button type="button" class="chip" data-value="c3" data-key="s1.cons.3" data-i18n="s1.cons.3">6'000–10'000 kWh</button>
-              <button type="button" class="chip" data-value="c4" data-key="s1.cons.4" data-i18n="s1.cons.4">&gt;10'000 kWh</button>
-            </div>
-          </div>
-          <p class="estNote" data-track="svc" style="display:none" data-i18n="s1.svc.note">Für Service-Anfragen genügen PLZ, Fotos und dein Anliegen weiter unten.</p>
-          <div class="estErr" data-err></div>
+      <div class="estStep" data-step="2">
+        <h3><i class="fa-solid fa-house-chimney"></i> <span data-i18n="w.s2.q">Was für ein Zuhause?</span></h3>
+        <div class="chips chips-single" data-name="homeType">
+          <button type="button" class="chip" data-value="Einfamilienhaus" data-key="w.s2.o1"><i class="fa-solid fa-house"></i> Einfamilienhaus</button>
+          <button type="button" class="chip" data-value="Reihenhaus" data-key="w.s2.o2"><i class="fa-solid fa-house-chimney"></i> Reihenhaus</button>
+          <button type="button" class="chip" data-value="Mehrfamilienhaus" data-key="w.s2.o3"><i class="fa-solid fa-building"></i> Mehrfamilienhaus</button>
+          <button type="button" class="chip" data-value="Gewerbe" data-key="w.s2.o4"><i class="fa-solid fa-briefcase"></i> Gewerbe</button>
         </div>
+      </div>
 
-        <div class="estStep" data-step="2">
-          <h3 data-i18n="s2.title">Zum Objekt</h3>
-          <div class="estLabel" data-i18n="s2.own">Eigentum oder Miete?</div>
-          <div class="chips chips-single" data-name="ownership">
-            <button type="button" class="chip" data-value="Eigentum" data-key="s2.own.1" data-i18n="s2.own.1">Eigentum</button>
-            <button type="button" class="chip" data-value="Miete" data-key="s2.own.2" data-i18n="s2.own.2">Miete</button>
-          </div>
-          <div class="estNote" data-i18n="s2.note">Miete: schriftliche Zustimmung von Vermieter oder STWEG nötig.</div>
-          <div class="estGrid" data-track="k">
-            <div>
-              <div class="estLabel" data-i18n="s2.floor">Etage</div>
-              <div class="chips chips-single" data-name="floor">
-                <button type="button" class="chip" data-value="EG" data-key="s2.fl.1" data-i18n="s2.fl.1">EG</button>
-                <button type="button" class="chip" data-value="1. OG" data-key="s2.fl.2" data-i18n="s2.fl.2">1. OG</button>
-                <button type="button" class="chip" data-value="2. OG" data-key="s2.fl.3" data-i18n="s2.fl.3">2. OG</button>
-                <button type="button" class="chip" data-value="3. OG+" data-key="s2.fl.4" data-i18n="s2.fl.4">3. OG+</button>
-                <button type="button" class="chip" data-value="Attika" data-key="s2.fl.5" data-i18n="s2.fl.5">Attika</button>
-              </div>
-            </div>
-            <div>
-              <div class="estLabel" data-i18n="s2.size">Raumgrösse (m²)</div>
-              <input class="estInput" type="text" inputmode="numeric" id="roomSize" placeholder="85">
-            </div>
-          </div>
-          <div class="estLabel" data-i18n="ck.label.plz">PLZ</div>
-          <input class="estInput" type="text" inputmode="numeric" id="plzInput" placeholder="8001">
-          <div class="estNote" data-i18n="s2.plz.hint">Wir prüfen, ob dein Standort im Servicegebiet liegt.</div>
-          <div class="estErr" data-err></div>
+      <div class="estStep" data-step="3">
+        <h3><i class="fa-solid fa-location-dot"></i> <span data-i18n="w.s3.q">Deine PLZ</span></h3>
+        <div class="estLabel" data-i18n="ck.label.plz">PLZ</div>
+        <input class="estInput" type="text" inputmode="numeric" id="plzInput" placeholder="8001" data-i18n-placeholder="ck.placeholder.plz">
+        <div class="estNote" data-i18n="w.s3.hint">Wir prüfen, ob dein Standort im Servicegebiet liegt.</div>
+        <div class="estErr" data-err></div>
+      </div>
+
+      <div class="estStep" data-step="4">
+        <h3><i class="fa-solid fa-bolt"></i> <span data-i18n="w.s4.q">Stromverbrauch pro Jahr?</span></h3>
+        <div class="chips chips-single" data-name="consumption">
+          <button type="button" class="chip" data-value="c1" data-key="w.s4.o1"><i class="fa-solid fa-temperature-low"></i> < 3'000 kWh</button>
+          <button type="button" class="chip" data-value="c2" data-key="w.s4.o2"><i class="fa-solid fa-temperature-half"></i> 3'001–5'000 kWh</button>
+          <button type="button" class="chip" data-value="c3" data-key="w.s4.o3"><i class="fa-solid fa-temperature-high"></i> 5'001–8'000 kWh</button>
+          <button type="button" class="chip" data-value="c4" data-key="w.s4.o4"><i class="fa-solid fa-temperature-arrow-up"></i> > 8'000 kWh</button>
         </div>
+        <div class="estNote" data-i18n="w.s4.note">Typisch für 1–5 Personen im Haushalt.</div>
+      </div>
 
-        <div class="estStep" data-step="3">
-          <h3 id="s3Title">Aussengerät & Wege</h3>
-          <div data-track="k3">
-            <div class="estLabel" data-i18n="s3.balcony">Balkon / Terrasse / Aussenbereich?</div>
-            <div class="chips chips-single" data-name="balcony">
-              <button type="button" class="chip" data-value="Ja" data-key="s3.y" data-i18n="s3.y">Ja</button>
-              <button type="button" class="chip" data-value="Nein" data-key="s3.n" data-i18n="s3.n">Nein</button>
-            </div>
-            <div class="estLabel" data-i18n="s3.pos">Wo könnte das Aussengerät stehen?</div>
-            <div class="chips chips-single" data-name="outdoorPos">
-              <button type="button" class="chip" data-value="Balkon" data-key="s3.pos.1" data-i18n="s3.pos.1">Balkon</button>
-              <button type="button" class="chip" data-value="Fassade" data-key="s3.pos.2" data-i18n="s3.pos.2">Fassade</button>
-              <button type="button" class="chip" data-value="Flachdach" data-key="s3.pos.3" data-i18n="s3.pos.3">Flachdach</button>
-              <button type="button" class="chip" data-value="Garten" data-key="s3.pos.4" data-i18n="s3.pos.4">Garten</button>
-              <button type="button" class="chip" data-value="Weiss nicht" data-key="s3.u" data-i18n="s3.u">Weiss nicht</button>
-            </div>
-            <div class="estLabel" data-i18n="s3.route">Leitungsweg geschätzt</div>
-            <div class="chips chips-single" data-name="route">
-              <button type="button" class="chip" data-value="<3 m" data-key="s3.route.1" data-i18n="s3.route.1">&lt;3 m</button>
-              <button type="button" class="chip" data-value="3-8 m" data-key="s3.route.2" data-i18n="s3.route.2">3–8 m</button>
-              <button type="button" class="chip" data-value=">8 m" data-key="s3.route.3" data-i18n="s3.route.3">&gt;8 m</button>
-              <button type="button" class="chip" data-value="Weiss nicht" data-key="s3.u" data-i18n="s3.u">Weiss nicht</button>
-            </div>
-            <div class="estLabel" data-i18n="s3.power">Stromanschluss vorhanden?</div>
-            <div class="chips chips-single" data-name="power">
-              <button type="button" class="chip" data-value="Ja" data-key="s3.y" data-i18n="s3.y">Ja</button>
-              <button type="button" class="chip" data-value="Nein" data-key="s3.n" data-i18n="s3.n">Nein</button>
-              <button type="button" class="chip" data-value="Weiss nicht" data-key="s3.u" data-i18n="s3.u">Weiss nicht</button>
-            </div>
-          </div>
-          <div data-track="s" style="display:none">
-            <div class="estLabel" data-i18n="s3s.shade">Dach unverschattet?</div>
-            <div class="chips chips-single" data-name="shade">
-              <button type="button" class="chip" data-value="Ja" data-key="s3.y" data-i18n="s3.y">Ja</button>
-              <button type="button" class="chip" data-value="Teilweise" data-key="s3s.sh.2" data-i18n="s3s.sh.2">Teilweise</button>
-              <button type="button" class="chip" data-value="Nein" data-key="s3.n" data-i18n="s3.n">Nein</button>
-              <button type="button" class="chip" data-value="Weiss nicht" data-key="s3.u" data-i18n="s3.u">Weiss nicht</button>
-            </div>
-            <div class="estLabel" data-i18n="s3s.floors">Wie viele Stockwerke?</div>
-            <div class="chips chips-single" data-name="floors">
-              <button type="button" class="chip" data-value="1" data-key="s3s.fl.1" data-i18n="s3s.fl.1">1</button>
-              <button type="button" class="chip" data-value="2" data-key="s3s.fl.2" data-i18n="s3s.fl.2">2</button>
-              <button type="button" class="chip" data-value="3+" data-key="s3s.fl.3" data-i18n="s3s.fl.3">3+</button>
-              <button type="button" class="chip" data-value="Attika" data-key="s3s.fl.4" data-i18n="s3s.fl.4">Attika</button>
-            </div>
-            <div class="estLabel" data-i18n="s3s.meter">Zähler & Elektro gut zugänglich?</div>
-            <div class="chips chips-single" data-name="meter">
-              <button type="button" class="chip" data-value="Ja" data-key="s3.y" data-i18n="s3.y">Ja</button>
-              <button type="button" class="chip" data-value="Nein" data-key="s3.n" data-i18n="s3.n">Nein</button>
-              <button type="button" class="chip" data-value="Weiss nicht" data-key="s3.u" data-i18n="s3.u">Weiss nicht</button>
-            </div>
-          </div>
-          <div class="estErr" data-err></div>
+      <div class="estStep" data-step="5">
+        <h3><i class="fa-solid fa-plug"></i> <span data-i18n="w.s5.q">Bestehende Anlage?</span></h3>
+        <div class="chips chips-single" data-name="existing">
+          <button type="button" class="chip" data-value="Ja" data-key="w.s5.o1"><i class="fa-solid fa-check"></i> Ja</button>
+          <button type="button" class="chip" data-value="Nein" data-key="w.s5.o2"><i class="fa-solid fa-xmark"></i> Nein</button>
+          <button type="button" class="chip" data-value="Unsicher" data-key="w.s5.o3"><i class="fa-solid fa-question"></i> Nicht sicher</button>
         </div>
+        <div class="estNote" data-i18n="w.s5.note">Für Kombi-Lösungen (neu + bestehend) besonders relevant.</div>
+      </div>
 
-        <div class="estStep" data-step="4">
-          <h3 data-i18n="s4.title">Hauptziel</h3>
-          <div class="chips chips-single" data-name="goal" id="goalChips"></div>
-          <div class="estLabel" data-i18n="s4.notes">Optional: Hinweise zum Projekt</div>
-          <textarea class="estInput" id="notes" rows="4" style="min-height:90px"></textarea>
-          <div class="estErr" data-err></div>
+      <div class="estStep" data-step="6">
+        <h3><i class="fa-solid fa-calendar-days"></i> <span data-i18n="w.s6.q">Wann soll es losgehen?</span></h3>
+        <div class="chips chips-single" data-name="timeline">
+          <button type="button" class="chip" data-value="sofort" data-key="w.s6.o1"><i class="fa-solid fa-rotate-left"></i> Sofort</button>
+          <button type="button" class="chip" data-value="1-3" data-key="w.s6.o2"><i class="fa-solid fa-calendar"></i> 1–3 Monate</button>
+          <button type="button" class="chip" data-value="3-6" data-key="w.s6.o3"><i class="fa-solid fa-calendar-check"></i> 3–6 Monate</button>
+          <button type="button" class="chip" data-value="6+" data-key="w.s6.o4"><i class="fa-solid fa-hourglass-half"></i> > 6 Monate</button>
         </div>
+      </div>
 
-        <div class="estStep" data-step="5">
-          <h3 data-i18n="s5.title">Fotos hochladen</h3>
-          <p class="estNote" data-i18n="s5.p">Handy-Fotos reichen: Raum, möglicher Aussenstandort, Elektroverteiler, Aussenwand.</p>
-          <div class="uploadChips" id="uploadChips">
-            <button type="button" class="chip" data-i18n="s5.ch1">＋ Raum</button>
-            <button type="button" class="chip" data-i18n="s5.ch2">＋ Aussenstandort</button>
-            <button type="button" class="chip" data-i18n="s5.ch3">＋ Elektro</button>
-            <button type="button" class="chip" data-i18n="s5.ch4">＋ Aussenwand</button>
-          </div>
-          <input type="file" id="photoInput" multiple accept="image/*" style="display:none">
-          <div class="estNote" id="photoInfo" data-i18n="s5.skip">Optional — mehr Fotos, präzisere Offerte.</div>
-          <div class="estErr" data-err></div>
+      <div class="estStep" data-step="7">
+        <h3><i class="fa-solid fa-user"></i> <span data-i18n="w.s7.q">Deine Daten</span></h3>
+        <div class="chips chips-single" data-name="timeline">
+          <button type="button" class="chip" data-value="sofort" data-key="w.s6.o1">Sofort</button>
+          <button type="button" class="chip" data-value="1-3" data-key="w.s6.o2">1–3 Monate</button>
+          <button type="button" class="chip" data-value="3-6" data-key="w.s6.o3">3–6 Monate</button>
+          <button type="button" class="chip" data-value="6+" data-key="w.s6.o4">&gt;6 Monate</button>
         </div>
+      </div>
 
-        <div class="estStep" data-step="6">
-          <h3 data-i18n="s6.title">Deine Offerte</h3>
-          <div class="estRangePlace" id="rangePlace">
-            <div class="estRange">
-              <div>
-                <small data-i18n="est.range.label">Richtbereich für ähnliche Projekte</small>
-                <b id="rangeVal">CHF…</b>
-              </div>
-              <em data-i18n="est.range.exact">Exakter Preis nach Foto-Prüfung.</em>
-            </div>
-            <p class="estNote" id="solarNote" style="display:none" data-i18n="est.solar.note">Wir prüfen dein Projekt und melden uns mit einer Festofferte.</p>
-          </div>
-          <div class="estGrid">
-            <div class="field"><label data-i18n="ck.label.firstName">Vorname</label><input class="estInput" id="fname" placeholder="Anna" data-i18n-placeholder="ck.placeholder.firstName"></div>
-            <div class="field"><label data-i18n="ck.label.lastName">Nachname</label><input class="estInput" id="lname" placeholder="Müller" data-i18n-placeholder="ck.placeholder.lastName"></div>
-            <div class="field"><label data-i18n="ck.label.phone">Telefon</label><input class="estInput" id="phone" placeholder="+41 79 000 00 00" data-i18n-placeholder="ck.placeholder.phone"></div>
-            <div class="field"><label data-i18n="ck.label.email">E-Mail</label><input class="estInput" id="email" type="email" placeholder="anna@example.ch" data-i18n-placeholder="ck.placeholder.email"></div>
-          </div>
-          <label class="consent"><input type="checkbox" id="consent"><span data-i18n="est.consent">Ich willige ein, kontaktiert zu werden und akzeptiere die Datenschutzbestimmungen (nDSG).</span></label>
-          <div class="estErr" data-err></div>
+      <div class="estStep" data-step="7">
+        <h3 data-i18n="w.s7.q">Deine Daten</h3>
+        <div class="estGrid">
+          <div class="field"><label data-i18n="ck.label.firstName">Vorname</label><input class="estInput" id="fname" placeholder="Anna" data-i18n-placeholder="ck.placeholder.firstName"></div>
+          <div class="field"><label data-i18n="ck.label.lastName">Nachname</label><input class="estInput" id="lname" placeholder="Müller" data-i18n-placeholder="ck.placeholder.lastName"></div>
+          <div class="field"><label data-i18n="ck.label.phone">Telefon</label><input class="estInput" id="phone" placeholder="+41 79 000 00 00" data-i18n-placeholder="ck.placeholder.phone"></div>
+          <div class="field"><label data-i18n="ck.label.email">E-Mail</label><input class="estInput" id="email" type="email" placeholder="anna@example.ch" data-i18n-placeholder="ck.placeholder.email"></div>
         </div>
+        <label class="consent"><input type="checkbox" id="consent"><span data-i18n="est.consent">Ich willige ein, kontaktiert zu werden und akzeptiere die Datenschutzbestimmungen (nDSG).</span></label>
+        <div class="estErr" data-err></div>
+      </div>
 
-        <div class="estNav">
-          <button type="button" class="back" id="estBack" data-i18n="est.back">← Zurück</button>
-          <button type="button" class="btn dark" id="estNext" data-i18n="est.next">Weiter →</button>
-          <button type="submit" class="btn green" id="estSubmit" style="display:none" data-i18n="est.submit">Exakte Offerte anfordern →</button>
-           <button type="button" class="btn ghost" id="dossierBtn" data-i18n="docs.pdf">Dossier (PDF)</button>
-        </div>
+      <div class="estNav">
+        <button type="button" class="back" id="estBack" data-i18n="est.back">← Zurück</button>
+        <button type="button" class="btn dark" id="estNext" data-i18n="est.next">Weiter →</button>
+        <button type="submit" class="btn green" id="estSubmit" style="display:none" data-i18n="ck.submit">Kostenlose Festofferte anfordern →</button>
+        <button type="button" class="btn ghost" id="dossierBtn" data-i18n="docs.pdf">Dossier als PDF generieren</button>
+      </div>
 
-        <div class="notice" style="margin-top:16px" data-i18n="ck.notice">Deine Anfrage geht direkt an unser Projektteam. Antwort innert 24 Stunden.</div>
-      </form>
+      <div class="notice" style="margin-top:16px" data-i18n="ck.notice">Deine Anfrage geht direkt an unser Projektteam. Antwort innert 24 Stunden.</div>
+    </form>
       <div class="emailcta" style="margin-top:20px;padding:28px;border-radius:20px;background:var(--sage-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
         <div>
           <h3 style="margin:0 0 6px;font-size:20px" data-i18n="ck.email.title">Lieber direkt per E-Mail kontaktieren?</h3>
@@ -316,317 +204,126 @@
     const form = document.getElementById("estimate");
     if (!form) return;
 
-    const physSteps = Array.from(form.querySelectorAll(".estStep"));
+    const steps = Array.from(form.querySelectorAll(".estStep"));
     const dotsBox = document.getElementById("estDots");
     const count = document.getElementById("estCount");
     const back = document.getElementById("estBack");
     const next = document.getElementById("estNext");
     const submit = document.getElementById("estSubmit");
-    const errNodes = form.querySelectorAll("[data-err]");
-    const typeSel = document.getElementById("estType");
-    const TYPE_MAP = { solar: "Solar", klima: "Klimaanlage", service: "Service", both: "Solar + Klima" };
-    const typeParam = new URLSearchParams(location.search).get("type");
-    if (typeParam && TYPE_MAP[typeParam]) typeSel.value = TYPE_MAP[typeParam];
-    let siteAnalysis = null;
-    const s3Title = document.getElementById("s3Title");
-
-    const GOALS = {
-      "Klimaanlage": [["k1", "s4.k1"], ["k2", "s4.k2"]],
-      "Solar": [["s1", "s4.s1"], ["s2", "s4.s2"], ["s3", "s4.s3"]],
-      "Solar + Klima": [["k1", "s4.k1"], ["s1", "s4.s1"], ["k2", "s4.k2"]],
-      "Service": [["c1", "s4.c1"], ["c2", "s4.c2"], ["c3", "s4.c3"]]
-    };
-    const VIS = {
-      "Klimaanlage": [0, 1, 2, 3, 4, 5],
-      "Solar": [0, 1, 2, 3, 4, 5],
-      "Solar + Klima": [0, 1, 2, 3, 4, 5],
-      "Service": [1, 3, 4, 5]
-    };
-    const RANGES = {
-      Wohnung: {1: [3500, 4900], 2: [6200, 7100], 3: [8500, 10500], 4: [10500, 13500], 5: [12500, 16000]},
-      Haus:    {1: [3900, 5400], 2: [6700, 8300], 3: [9200, 11900], 4: [11500, 14800], 5: [14500, 18200]},
-      Gewerbe: {1: [4200, 5700], 2: [7400, 9100], 3: [9900, 12800], 4: [12800, 15800], 5: [15200, 19500]},
-      Anderes: {1: [3500, 4900], 2: [6200, 7100], 3: [8500, 10500], 4: [10500, 13500], 5: [12500, 16000]}
-    };
-    const PV = {
-      c1: [9800, 13400], c2: [11900, 15500], c3: [14800, 18900], c4: [19500, 24900]
-    };
-    const FIELDS = {
-      "Klimaanlage": [["s1.btype", "building"], ["s1.rooms", "rooms"], ["s1.what", "roomType"], ["s2.own", "ownership"], ["s2.floor", "floor"], ["size", "size"], ["plz", "plz"], ["s3.balcony", "balcony"], ["s3.pos", "outdoorPos"], ["s3.route", "route"], ["s3.power", "power"]],
-      "Solar": [["s1.dach", "roof"], ["s1.dir", "orientation"], ["s1.cons", "consumption"], ["s2.own", "ownership"], ["plz", "plz"], ["s3s.shade", "shade"], ["s3s.floors", "floors"], ["s3s.meter", "meter"]],
-      "Solar + Klima": [["s1.dach", "roof"], ["s1.dir", "orientation"], ["s1.cons", "consumption"], ["s1.rooms", "rooms"], ["s2.own", "ownership"], ["s2.floor", "floor"], ["size", "size"], ["plz", "plz"], ["s3s.shade", "shade"], ["s3s.floors", "floors"], ["s3s.meter", "meter"]],
-      "Service": [["s2.own", "ownership"], ["plz", "plz"]]
-    };
-    const PV_LABEL = { c1: "s1.cons.1", c2: "s1.cons.2", c3: "s1.cons.3", c4: "s1.cons.4" };
-
+    const plzInput = document.getElementById("plzInput");
     const ZH = /^8\d{3}$/;
     const AG = /^5[03456]\d{2}$/;
     const REGION = new RegExp(ZH.source + '|' + AG.source);
     let pos = 0;
-    let selectedGoal = null;
-    let track = typeSel.value;
 
-    const chip = (name) => form.querySelector('.chips[data-name="' + name + '"] .chip.on');
-    const chipVal = (name) => { const c = chip(name); return c ? c.getAttribute("data-value") : null; };
-    const chipLabel = (name) => {
-      const c = chip(name);
-      if (!c) return null;
-      const k = c.getAttribute("data-key");
-      return k ? t(k) : c.getAttribute("data-value");
-    };
-    const chipLabels = (name) => Array.from(form.querySelectorAll('.chips[data-name="' + name + '"] .chip.on')).map(c => { const k = c.getAttribute("data-key"); return k ? t(k) : c.getAttribute("data-value"); });
-    const fmt = (n) => "CHF " + String(Math.round(n / 100) * 100).replace(/\B(?=(\d{3})+(?!\d))/g, "'");
-    const visibleSteps = () => VIS[track] || VIS["Klimaanlage"];
+    function val(name) {
+      const c = form.querySelector('.chips[data-name="' + name + '"] .chip.on');
+      return c ? c.getAttribute("data-value") : null;
+    }
 
-    const clearErr = () => errNodes.forEach(e => e.textContent = "");
-    const setErr = (msg) => {
-      const el = physSteps[visibleSteps()[pos]].querySelector("[data-err]");
-      if (el) el.textContent = msg;
-    };
+    function stepErr() { return form.querySelector(".estStep.on [data-err]"); }
 
-    const renderGoals = () => {
-      const wrap = document.getElementById("goalChips");
-      const opts = GOALS[track] || GOALS["Klimaanlage"];
-      wrap.innerHTML = "";
-      if (selectedGoal && !opts.find(o => o[0] === selectedGoal)) selectedGoal = null;
-      opts.forEach(([code, key]) => {
-        const b = document.createElement("button");
-        b.type = "button";
-        b.className = "chip" + (selectedGoal === code ? " on" : "");
-        b.setAttribute("data-code", code);
-        b.textContent = t(key);
-        b.addEventListener("click", () => {
-          wrap.querySelectorAll(".chip").forEach(x => x.classList.remove("on"));
-          b.classList.add("on");
-          selectedGoal = code;
-        });
-        wrap.appendChild(b);
-      });
-    };
-
-    function renderDots() {
-      const vis = visibleSteps();
+    function render() {
+      steps.forEach((s, i) => s.classList.toggle("on", i === pos));
       dotsBox.innerHTML = "";
-      vis.forEach((p, i) => {
+      for (let i = 0; i < steps.length; i++) {
         const d = document.createElement("i");
         if (i <= pos) d.className = "on";
         dotsBox.appendChild(d);
-      });
-    }
-
-    function applyTrack() {
-      track = typeSel.value;
-      const flag = (sel, cond) => form.querySelectorAll(sel).forEach(el => el.style.display = cond ? "" : "none");
-      flag('[data-track="k"]', track === "Klimaanlage" || track === "Solar + Klima");
-      flag('[data-track="k3"]', track === "Klimaanlage");
-      flag('[data-track="s"]', track === "Solar" || track === "Solar + Klima");
-      flag('[data-track="svc"]', track === "Service");
-      s3Title.textContent = (track === "Solar" || track === "Solar + Klima") ? t("s3s.title") : t("s3.title");
-    }
-
-    function render() {
-      const vis = visibleSteps();
-      const last = pos === vis.length - 1;
-      const physNow = vis[pos];
-      physSteps.forEach((s, i) => s.classList.toggle("on", i === physNow));
-      renderDots();
-      count.textContent = t("est.step") + " " + (pos + 1) + " " + t("est.of") + " " + vis.length;
-      back.style.visibility = pos === 0 ? "hidden" : "visible";
-      next.style.display = last ? "none" : "inline-flex";
-      submit.style.display = last ? "inline-flex" : "none";
-      if (last) renderOffer();
-      clearErr();
-    }
-
-    function renderOffer() {
-      const rp = document.getElementById("rangePlace");
-      const sn = document.getElementById("solarNote");
-      const rv = document.getElementById("rangeVal");
-      if (track === "Klimaanlage") {
-        sn.style.display = "none";
-        rp.style.display = "block";
-        const b = chipVal("building") || "Wohnung";
-        const r = parseInt(chipVal("rooms") || "2", 10);
-        const row = (RANGES[b] || RANGES.Wohnung)[Math.min(r, 5)];
-        rv.textContent = fmt(row[0]) + " – " + fmt(row[1]);
-      } else if (track === "Solar" || track === "Solar + Klima") {
-        sn.style.display = "none";
-        rp.style.display = "block";
-        const row = PV[chipVal("consumption")] || PV.c2;
-        rv.textContent = fmt(row[0]) + " – " + fmt(row[1]);
-      } else {
-        rp.style.display = "none";
-        sn.style.display = "block";
       }
+      count.textContent = t("est.step") + " " + (pos + 1) + " " + t("est.of") + " " + steps.length;
+      back.style.visibility = pos === 0 ? "hidden" : "visible";
+      next.style.display = pos === steps.length - 1 ? "none" : "inline-flex";
+      submit.style.display = pos === steps.length - 1 ? "inline-flex" : "none";
+      stepErr() && (stepErr().textContent = "");
     }
 
     function validate() {
-      const phys = visibleSteps()[pos];
-      if (phys === 0) {
-        if (track === "Solar") { if (!chipVal("consumption")) return t("est.need"); }
-        else if (track === "Klimaanlage") { if (!chipVal("rooms")) return t("est.need"); }
-        else if (track === "Solar + Klima") { if (!chipVal("consumption") || !chipVal("rooms")) return t("est.need"); }
-      } else if (phys === 1) {
-        const plzEl = document.getElementById("plzInput");
-        const plz = plzEl.value.trim();
+      if (pos === 0 && !val("service")) return t("est.need");
+      if (pos === 2) {
+        const plz = plzInput.value.trim();
         if (!/^\d{4}$/.test(plz)) return t("est.plz");
         if (!REGION.test(plz)) return t("est.plz.region");
-      } else if (phys === 3) {
-        if (!selectedGoal) return t("est.need");
       }
       return "";
     }
 
     function goStep(n) {
-      if (n > pos) {
-        const err = validate();
-        if (err) { setErr(err); return; }
-      }
-      const vis = visibleSteps();
-      pos = Math.max(0, Math.min(vis.length - 1, n));
+      if (n > pos) { const err = validate(); if (err) { const e = stepErr(); if (e) e.textContent = err; return; } }
+      pos = Math.max(0, Math.min(steps.length - 1, n));
       render();
-      form.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-
-    form.querySelectorAll(".chips[data-single], .chips.chips-single").forEach(group => {
-      group.addEventListener("click", (e) => {
-        const b = e.target.closest(".chip");
-        if (!b) return;
-        group.querySelectorAll(".chip").forEach(x => x.classList.remove("on"));
-        b.classList.add("on");
-      });
-    });
-    form.addEventListener("click", (e) => {
-      const b = e.target.closest('.chips[data-multi] .chip');
-      if (b) b.classList.toggle("on");
-    });
 
     next.addEventListener("click", () => goStep(pos + 1));
     back.addEventListener("click", () => goStep(pos - 1));
-    typeSel.addEventListener("change", () => { pos = 0; selectedGoal = null; applyTrack(); renderGoals(); render(); });
-    document.addEventListener("click", (e) => {
-      if (e.target.closest(".langToggle")) { applyTrack(); renderGoals(); render(); }
+
+    form.querySelectorAll(".chips.chips-single").forEach(g => {
+      g.addEventListener("click", (e) => {
+        const b = e.target.closest(".chip"); if (!b) return;
+        g.querySelectorAll(".chip").forEach(x => x.classList.remove("on"));
+        b.classList.add("on");
+      });
     });
+
+    function ballparkPrice(svc, cons) {
+      const mult = { c1: 3000, c2: 4000, c3: 6500, c4: 10000 }[cons] || 4000;
+      const f = { Solar: 2.5, Klima: 2.0, "Solar + Klima": 4.0, Service: 0.2 }[svc] || 2.5;
+      return "CHF " + Math.round(mult*f/100)*100 + " – " + Math.round(mult*f*1.5/100)*100;
+    }
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const err = validate();
-      if (err) { setErr(err); return; }
+      const svc = val("service");
+      const plz = plzInput.value.trim();
       const fname = document.getElementById("fname").value.trim();
       const lname = document.getElementById("lname").value.trim();
+      const phone = document.getElementById("phone").value.trim();
       const email = document.getElementById("email").value.trim();
       const consent = document.getElementById("consent").checked;
-      if (!fname || !lname) { setErr(t("est.need")); return; }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setErr(t("est.mail")); return; }
-      if (!consent) { setErr(t("est.consentErr")); return; }
+      if (!fname || !lname) { const e = stepErr(); if (e) e.textContent = t("est.need"); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { const e = stepErr(); if (e) e.textContent = t("est.mail"); return; }
+      if (!consent) { const e = stepErr(); if (e) e.textContent = t("est.consentErr"); return; }
 
-      const goalKey = (GOALS[track] || GOALS["Klimaanlage"]).find(g => g[0] === selectedGoal);
-      const parts = [t("ck.label.type") + ": " + typeSel.value];
-      (FIELDS[track] || []).forEach(([lk, name]) => {
-        const lab = lk === "size" ? t("s2.size") : lk === "plz" ? t("ck.label.plz") : t(lk);
-        let val;
-        if (name === "size") val = document.getElementById("roomSize").value.trim() || "-";
-        else if (name === "plz") val = document.getElementById("plzInput").value.trim();
-        else if (name === "roomType") val = chipLabels(name).join(", ") || "-";
-        else val = chipLabel(name) || "-";
-        parts.push(lab + ": " + val);
-      });
-      if (track === "Solar" || track === "Solar + Klima") {
-        const c = chipVal("consumption");
-        if (c) parts.push(t("s1.cons") + ": " + t(PV_LABEL[c]));
-      }
-      parts.push(t("s4.title") + ": " + (goalKey ? t(goalKey[1]) : "-"));
-      parts.push("Fotos: " + document.getElementById("photoInput").files.length);
+      const parts = [
+        t("ck.label.type") + ": " + svc,
+        t("w.s2.q") + ": " + (val("homeType") || "-"),
+        t("ck.label.plz") + ": " + (plz || "-"),
+      ];
+      const cons = val("consumption");
+      if (cons) parts.push(t("w.s4.q") + ": " + cons);
+      const exist = val("existing");
+      if (exist) parts.push(t("w.s5.q") + ": " + exist);
+      const time = val("timeline");
+      if (time) parts.push(t("w.s6.q") + ": " + time);
+      parts.push(t("ck.label.phone") + ": " + phone);
+      parts.push(t("ck.label.email") + ": " + email);
       const docsFiles = {};
       document.querySelectorAll('[data-docs]').forEach(inp => { const arr = Array.from(inp.files).map(f => f.name); if (arr.length) docsFiles[inp.dataset.docs] = arr.join(', '); });
       const docsStr = Object.entries(docsFiles).map(([k,v]) => t('docs.s3.'+k) + ': ' + v).join(' | ') || '-';
       parts[0] = parts[0] + (docsStr !== '-' ? (' | Fotos-Details: ' + docsStr) : '');
-      const notes = document.getElementById("notes").value.trim();
-      if (notes) parts.push(t("s4.notes") + ": " + notes);
-      parts.push(t("ck.label.phone") + ": " + document.getElementById("phone").value.trim());
-      parts.push(t("ck.label.email") + ": " + document.getElementById("email").value.trim());
 
-      const payload = {
-        type: typeSel.value,
-        plz: document.getElementById("plzInput").value.trim(),
-        firstName: fname,
-        lastName: lname,
-        email: email,
-        phone: document.getElementById("phone").value.trim(),
-        message: parts.join(" • ")
-      };
-
+      const payload = { type: svc, plz, firstName: fname, lastName: lname, email, phone, message: parts.join(" • ") };
       const btn = submit;
       const originalText = btn.textContent;
-      btn.textContent = t("ck.sending");
-      btn.disabled = true;
-
+      btn.textContent = t("ck.sending"); btn.disabled = true;
       const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzstGKeB9qDeWUy_klcb_bUq-R10bS4ZzQrTXPPJLyNQJ-h4cTiZNffyKlLsW3u45VU3Q/exec";
       try {
-        await fetch(SCRIPT_URL, {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        });
-        alert(t("ck.success"));
-        form.reset();
-        selectedGoal = null;
-        applyTrack();
-        renderGoals();
-        pos = 0;
-const dossierBtn = document.getElementById('dossierBtn');
-    dossierBtn.addEventListener('click', () => {
-      const div = document.getElementById('dossier');
-      const sa = siteAnalysis || {};
-      const plzVal = document.getElementById('plzInput').value.trim() || '-';
-      const rows = [
-        ['Projekt', typeSel.value],
-        ['PLZ', plzVal],
-      ];
-      if (sa.yieldKwh) {
-        rows.push(
-          ['Geschätzte Dachfläche', Math.round(sa.roofArea||0).toLocaleString() + ' m²'],
-          ['Geschätzter Ertrag', '~' + Math.round(sa.yieldKwh).toLocaleString() + ' kWh/yr'],
-          ['GHI (geschätzt)', Math.round(sa.ghi||0) + ' kWh/m²/yr'],
-          ['Preisspanne', ballparkPrice(sa.yieldKwh)],
-        );
-      } else {
-        const rv = document.getElementById('rangeVal');
-        if (rv && rv.textContent.trim()) rows.push(['Richtbereich', rv.textContent.trim()]);
-      }
-      div.innerHTML = '<div style="font-family:sans-serif;padding:24px;max-width:210px;margin:0 auto"><h2 style="font-size:18px;margin:0 0 12px">Dossier — Enervia.ch</h2><p style="font-size:11px;color:#666">Generiert '+new Date().toLocaleDateString('de-CH')+'</p><table style="width:100%;font-size:13px;border-collapse:collapse;margin-top:12px">' + rows.map(([a,b]) => '<tr><td style="padding:5px;border-bottom:1px solid #eee;font-weight:600">' + a + '</td><td style="padding:5px;border-bottom:1px solid #eee">' + b + '</td></tr>').join('') + '</table><p style="font-size:11px;color:#666;margin-top:12px">Enervia.ch · +41 77 974 39 14 · enervia.ch@gmail.com</p></div>';
+        await fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+        alert(t("ck.success")); form.reset(); pos = 0; render();
+      } catch (err) { console.error("Fehler:", err); alert(t("ck.error")); }
+      finally { btn.textContent = originalText; btn.disabled = false; }
+    });
+
+    // Dossier PDF
+    document.getElementById('dossierBtn').addEventListener('click', () => {
+      const svc = val('service') || 'Solar';
+      const cons = val('consumption');
+      const plz = plzInput.value.trim();
+      const div = document.createElement('div');
+      div.innerHTML = '<div style="font-family:sans-serif;padding:24px;max-width:210px;margin:0 auto"><h2 style="font-size:18px;margin:0 0 12px">Dossier — Enervia.ch</h2><p style="font-size:11px;color:#666">Generiert '+new Date().toLocaleDateString('de-CH')+'</p><table style="width:100%;font-size:13px;border-collapse:collapse;margin-top:12px">' + [['Projekt', svc], ['PLZ', plz||'-'], ['Richtpreis', ballparkPrice(svc, cons)]].map(([a,b]) => '<tr><td style="padding:5px;border-bottom:1px solid #eee;font-weight:600">' + a + '</td><td style="padding:5px;border-bottom:1px solid #eee">' + b + '</td></tr>').join('') + '</table><p style="font-size:11px;color:#666;margin-top:12px">Enervia.ch · +41 77 974 39 14 · enervia.ch@gmail.com</p></div>';
       if (window.html2pdf) { html2pdf().set({margin:0,filename:'dossier-enervia',html2canvas:{scale:2},jsPDF:{orientation:'portrait',unit:'mm',format:'a4'}}).from(div).save(); }
       else { alert(t('docs.error')); }
     });
-    render();
-      } catch (err) {
-        console.error("Fehler beim Senden:", err);
-        alert(t("ck.error"));
-      } finally {
-        btn.textContent = originalText;
-        btn.disabled = false;
-      }
-    });
-
-    // Photo chips
-    const photoInput = document.getElementById("photoInput");
-    const photoInfo = document.getElementById("photoInfo");
-    document.getElementById("uploadChips").addEventListener("click", (e) => {
-      const b = e.target.closest(".chip");
-      if (!b) return;
-      b.classList.add("on");
-      photoInput.click();
-    });
-    photoInput.addEventListener("change", () => {
-      const n = photoInput.files.length;
-      photoInfo.textContent = n ? n + " ×" : t("s5.skip");
-    });
-
-    applyTrack();
-    renderGoals();
-
-    function ballparkPrice(kwh) { return `CHF ${Math.round(kwh*1.9).toLocaleString()} – ${Math.round(kwh*2.4).toLocaleString()}`; }
 
     render();
   });
