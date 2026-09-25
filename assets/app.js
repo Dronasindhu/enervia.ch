@@ -1,3 +1,37 @@
+// ── Theme toggle (dark/light, saved to localStorage) ──
+(function () {
+  const STORE_KEY = 'enervia-theme';
+  const root = document.documentElement;
+  const btn = document.querySelector('.themeToggle');
+  if (!btn) return;
+
+  const isDark = () => root.classList.contains('dark');
+  const label = (dark) => {
+    try {
+      var t = window.EnerviaI18n ? window.EnerviaI18n.t('theme.' + (dark ? 'light' : 'dark')) : null;
+      return t || (dark ? 'Switch to light mode' : 'Switch to dark mode');
+    } catch (e) { return dark ? 'Switch to light mode' : 'Switch to dark mode'; }
+  };
+
+  function sync() {
+    const dark = isDark();
+    btn.innerHTML = dark ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+    btn.setAttribute('aria-label', label(dark));
+    btn.setAttribute('title', label(dark));
+  }
+
+  btn.addEventListener('click', () => {
+    const dark = !isDark();
+    root.classList.toggle('dark', dark);
+    try { localStorage.setItem(STORE_KEY, dark ? 'dark' : 'light'); } catch (e) {}
+    sync();
+  });
+
+  // Keep an up-to-date icon/label even if the lang toggle runs after this
+  document.addEventListener('DOMContentLoaded', sync);
+  if (document.readyState !== 'loading') sync();
+})();
+
 // ── Prototype form handler ──
 document.querySelectorAll('form[data-prototype]').forEach(f =>
   f.addEventListener('submit', e => {

@@ -29,6 +29,7 @@
   </style>
 
   <script src="assets/i18n.js"></script>
+  <script>(function(){try{if(localStorage.getItem('enervia-theme')==='dark'){document.documentElement.classList.add('dark')}}catch(e){}})();</script>
   <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@1.4.1/dist/html2pdf.bundle.min.js"></script>
 </head>
 <body>
@@ -44,6 +45,7 @@
       <a href="about.html" data-i18n="nav.about">Über uns</a>
       <a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
     </nav>
+    <button class="themeToggle" type="button" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
     <button class="langToggle" aria-label="Language">EN</button>
     <a class="btn dark" href="kontakt.html" data-i18n="nav.cta">Projekt anfragen →</a>
   </div>

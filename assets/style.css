@@ -158,3 +158,53 @@ footer{background:#0f1111;color:#d5dfdb;padding:56px 0 28px}.footgrid{display:gr
   .estStep .estInput{margin-top:10px}
   .estGrid .field{margin-top:10px}
   @media(max-width:680px){.estGrid{grid-template-columns:1fr}.estimate{padding:24px}.uploadChips{grid-template-columns:1fr 1fr}}
+
+/* ── Theme toggle ── */
+.themeToggle{display:inline-flex;align-items:center;justify-content:center;min-width:48px;min-height:44px;padding:0 12px;border-radius:var(--radius-pill);border:1px solid var(--border);background:#fff;color:#3d4545;font-size:15px;cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease;flex-shrink:0}
+.themeToggle:hover{background:var(--charcoal);color:#fff;border-color:var(--charcoal)}
+
+/* ── Dark mode (class-based, applied on <html>) ── */
+html.dark{
+  color-scheme:dark;
+  --stone:#0F1111;
+  --stone-2:#161A1A;
+  --bg:#0F1111;
+  --ink:#E7EAE8;
+  --card:#1B2020;
+  --border:#2A302F;
+  --muted:#9AA6A1;
+  --sage:#A9B9AC;
+  --sage-light:#1F2723;
+  --mint:#1F2723;
+  --shadow:0 16px 40px rgba(0,0,0,.45);
+}
+html.dark body{background:var(--bg);color:var(--ink)}
+html.dark .header{background:rgba(15,17,17,.92)}
+html.dark .topbar{color:#C6CCC9}
+html.dark .navlinks{color:#C2C9C6}
+html.dark .navlinks a:hover{color:var(--ink)}
+html.dark .btn.dark,html.dark .btn.green{background:#2A2F2F;color:#F2F4F3}
+html.dark .btn.dark:hover,html.dark .btn.green:hover{background:#394040}
+html.dark .btn.ghost{background:var(--card);color:var(--ink)}
+html.dark .pill,html.dark .langToggle,html.dark .themeToggle{background:var(--card);color:#C6CCCA}
+html.dark .langToggle:hover,html.dark .themeToggle:hover{background:#2A2F2F;color:#fff;border-color:#2A2F2F}
+html.dark .serviceCard,html.dark .step,html.dark .infoCard,html.dark .quoteForm,html.dark .proofCopy,
+html.dark .estimate,html.dark .docs,html.dark .faq,html.dark .docsGrid>div,
+html.dark .microTrust span{background:var(--card);color:var(--ink)}
+html.dark .docs,html.dark .faq{background:var(--card)!important}
+html.dark .serviceCard:hover,html.dark .step:hover{box-shadow:0 12px 32px rgba(0,0,0,.35);border-color:#353D3C}
+html.dark .serviceCard p,html.dark .sectionHead p,html.dark .proofCopy p,html.dark .lead,
+html.dark .faq details p,html.dark .consent,html.dark .microTrust{color:#B9C2BE}
+html.dark .value{background:var(--card);color:var(--ink)}
+html.dark .field label,html.dark .estLabel{color:#C6CCCA}
+html.dark .field input,html.dark .field select,html.dark .field textarea,
+html.dark .estInput{background:var(--card);color:var(--ink);border-color:var(--border)}
+html.dark .field input:focus,html.dark .estInput:focus{border-color:var(--sage);box-shadow:0 0 0 3px rgba(169,185,172,.12)}
+html.dark .chip{background:var(--card);color:#C6CCCA}
+html.dark .chip.on{background:var(--sage);color:#0F1111;border-color:var(--sage)}
+html.dark .chip.on i{color:#0F1111}
+html.dark .floatCard,html.dark .floatCard.solar{background:rgba(27,32,32,.94);color:var(--ink)}
+html.dark .priceTag{background:rgba(27,32,32,.92)}
+html.dark .step .num{background:#2A2F2F;color:#fff}
+html.dark .ctaBox .btn{background:var(--sage);color:#0F1111}
+html.dark .ctaBox .btn:hover{box-shadow:0 8px 28px rgba(0,0,0,.3)}
