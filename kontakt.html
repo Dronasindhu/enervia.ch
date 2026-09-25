@@ -57,132 +57,147 @@
           <span class="pill" data-i18n="ck.pill">Projektcheck</span>
           <h1 style="margin-top:18px" data-i18n="ck.h1">Was möchtest du zuhause verbessern?</h1>
         </div>
-<p data-i18n="ck.p">Kurze Antworten, live Richtpreis, danach Festofferte — innert 24 Stunden. Unverbindlich.</p>
-    </div>
-
-    <div class="ckLayout">
-    <form class="estimate" id="estimate" novalidate>
-      <div class="estHead">
-        <span class="estTitle" data-i18n="est.title">Richtwert — 3 Minuten</span>
-        <span class="estCount" id="estCount"></span>
+        <p data-i18n="ck.p">Kurze Antworten, live Richtpreis, danach Festofferte — innert 24 Stunden. Unverbindlich.</p>
       </div>
-      <div class="estDots" id="estDots"></div>
 
-      <div class="estStep on" data-step="1">
-        <h3 data-i18n="w.s1.q">Was suchst du?</h3>
-        <div class="chips chips-single" data-name="service">
-          <button type="button" class="chip" data-value="Solar"><i class="fa-solid fa-solar-panel"></i> <span data-i18n="w.s1.o1">Solar</span></button>
-          <button type="button" class="chip" data-value="Klima"><i class="fa-solid fa-snowflake"></i> <span data-i18n="w.s1.o2">Klima</span></button>
-          <button type="button" class="chip" data-value="Solar + Klima"><i class="fa-solid fa-cloud-sun"></i> <span data-i18n="w.s1.o3">Solar + Klima</span></button>
-          <button type="button" class="chip" data-value="Service"><i class="fa-solid fa-wrench"></i> <span data-i18n="w.s1.o4">Service</span></button>
+      <div class="ckLayout" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; align-items: start;">
+        
+        <!-- LEFT COLUMN -->
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          
+          <form class="estimate" id="estimate" novalidate>
+            <div class="estHead">
+              <span class="estTitle" data-i18n="est.title">Richtwert — 3 Minuten</span>
+              <span class="estCount" id="estCount"></span>
+            </div>
+            <div class="estDots" id="estDots"></div>
+
+            <div class="estStep on" data-step="1">
+              <h3 data-i18n="w.s1.q">Was suchst du?</h3>
+              <div class="chips chips-single" data-name="service">
+                <button type="button" class="chip" data-value="Solar"><i class="fa-solid fa-solar-panel"></i> <span data-i18n="w.s1.o1">Solar</span></button>
+                <button type="button" class="chip" data-value="Klima"><i class="fa-solid fa-snowflake"></i> <span data-i18n="w.s1.o2">Klima</span></button>
+                <button type="button" class="chip" data-value="Solar + Klima"><i class="fa-solid fa-cloud-sun"></i> <span data-i18n="w.s1.o3">Solar + Klima</span></button>
+                <button type="button" class="chip" data-value="Service"><i class="fa-solid fa-wrench"></i> <span data-i18n="w.s1.o4">Service</span></button>
+              </div>
+            </div>
+
+            <div class="estStep" data-step="2">
+              <h3><i class="fa-solid fa-house-chimney"></i> <span data-i18n="w.s2.q">Was für ein Zuhause?</span></h3>
+              <div class="chips chips-single" data-name="homeType">
+                <button type="button" class="chip" data-value="Einfamilienhaus"><i class="fa-solid fa-house"></i> <span data-i18n="w.s2.o1">Einfamilienhaus</span></button>
+                <button type="button" class="chip" data-value="Reihenhaus"><i class="fa-solid fa-house-chimney"></i> <span data-i18n="w.s2.o2">Reihenhaus</span></button>
+                <button type="button" class="chip" data-value="Mehrfamilienhaus"><i class="fa-solid fa-building"></i> <span data-i18n="w.s2.o3">Mehrfamilienhaus</span></button>
+                <button type="button" class="chip" data-value="Gewerbe"><i class="fa-solid fa-briefcase"></i> <span data-i18n="w.s2.o4">Gewerbe</span></button>
+              </div>
+            </div>
+
+            <div class="estStep" data-step="3">
+              <h3><i class="fa-solid fa-location-dot"></i> <span data-i18n="w.s3.q">Deine PLZ</span></h3>
+              <div class="estLabel" data-i18n="ck.label.plz">PLZ</div>
+              <input class="estInput" type="text" inputmode="numeric" id="plzInput" placeholder="8001" data-i18n-placeholder="ck.placeholder.plz">
+              <div class="estNote" data-i18n="w.s3.hint">Wir prüfen, ob dein Standort im Servicegebiet liegt.</div>
+              <div class="estErr" data-err></div>
+            </div>
+
+            <div class="estStep" data-step="4">
+              <h3><i class="fa-solid fa-bolt"></i> <span data-i18n="w.s4.q">Stromverbrauch pro Jahr?</span></h3>
+              <div class="chips chips-single" data-name="consumption">
+                <button type="button" class="chip" data-value="c1"><i class="fa-solid fa-temperature-low"></i> <span data-i18n="w.s4.o1">&lt; 3'000 kWh</span></button>
+                <button type="button" class="chip" data-value="c2"><i class="fa-solid fa-temperature-half"></i> <span data-i18n="w.s4.o2">3'001–5'000 kWh</span></button>
+                <button type="button" class="chip" data-value="c3"><i class="fa-solid fa-temperature-high"></i> <span data-i18n="w.s4.o3">5'001–8'000 kWh</span></button>
+                <button type="button" class="chip" data-value="c4"><i class="fa-solid fa-temperature-arrow-up"></i> <span data-i18n="w.s4.o4">&gt; 8'000 kWh</span></button>
+              </div>
+              <div class="estNote" data-i18n="w.s4.note">Typisch für 1–5 Personen im Haushalt.</div>
+            </div>
+
+            <div class="estStep" data-step="5">
+              <h3><i class="fa-solid fa-plug"></i> <span data-i18n="w.s5.q">Bestehende Anlage?</span></h3>
+              <div class="chips chips-single" data-name="existing">
+                <button type="button" class="chip" data-value="Ja"><i class="fa-solid fa-check"></i> <span data-i18n="w.s5.o1">Ja</span></button>
+                <button type="button" class="chip" data-value="Nein"><i class="fa-solid fa-xmark"></i> <span data-i18n="w.s5.o2">Nein</span></button>
+                <button type="button" class="chip" data-value="Unsicher"><i class="fa-solid fa-question"></i> <span data-i18n="w.s5.o3">Nicht sicher</span></button>
+              </div>
+              <div class="estNote" data-i18n="w.s5.note">Für Kombi-Lösungen (neu + bestehend) besonders relevant.</div>
+            </div>
+
+            <div class="estStep" data-step="6">
+              <h3><i class="fa-solid fa-calendar-days"></i> <span data-i18n="w.s6.q">Wann soll es losgehen?</span></h3>
+              <div class="chips chips-single" data-name="timeline">
+                <button type="button" class="chip" data-value="sofort"><i class="fa-solid fa-rotate-left"></i> <span data-i18n="w.s6.o1">Sofort</span></button>
+                <button type="button" class="chip" data-value="1-3"><i class="fa-solid fa-calendar"></i> <span data-i18n="w.s6.o2">1–3 Monate</span></button>
+                <button type="button" class="chip" data-value="3-6"><i class="fa-solid fa-calendar-check"></i> <span data-i18n="w.s6.o3">3–6 Monate</span></button>
+                <button type="button" class="chip" data-value="6+"><i class="fa-solid fa-hourglass-half"></i> <span data-i18n="w.s6.o4">&gt; 6 Monate</span></button>
+              </div>
+            </div>
+
+            <div class="estStep" data-step="7">
+              <h3><i class="fa-solid fa-user"></i> <span data-i18n="w.s7.q">Deine Kontaktdaten für die Offerte</span></h3>
+              <p style="color:var(--muted); margin-top: 8px; margin-bottom: 20px; font-size: 14px;" data-i18n="w.s7.desc">Bitte teile uns deine Kontaktdaten mit, damit wir dir die massgeschneiderte Festofferte zustellen können.</p>
+              <div class="estGrid">
+                <div class="field"><label data-i18n="ck.label.firstName">Vorname</label><input class="estInput" id="fname" placeholder="Anna" data-i18n-placeholder="ck.placeholder.firstName"></div>
+                <div class="field"><label data-i18n="ck.label.lastName">Nachname</label><input class="estInput" id="lname" placeholder="Müller" data-i18n-placeholder="ck.placeholder.lastName"></div>
+                <div class="field"><label data-i18n="ck.label.phone">Telefon</label><input class="estInput" id="phone" placeholder="+41 79 000 00 00" data-i18n-placeholder="ck.placeholder.phone"></div>
+                <div class="field"><label data-i18n="ck.label.email">E-Mail</label><input class="estInput" id="email" type="email" placeholder="anna@example.ch" data-i18n-placeholder="ck.placeholder.email"></div>
+              </div>
+              <label class="consent"><input type="checkbox" id="consent"><span data-i18n="est.consent">Ich willige ein, kontaktiert zu werden und akzeptiere die Datenschutzbestimmungen (nDSG).</span></label>
+              <div class="estErr" data-err></div>
+            </div>
+
+            <div class="estNav">
+              <button type="button" class="back" id="estBack" data-i18n="est.back">← Zurück</button>
+              <button type="button" class="btn dark" id="estNext" data-i18n="est.next">Weiter →</button>
+              <button type="submit" class="btn green" id="estSubmit" style="display:none" data-i18n="ck.submit">Kostenlose Festofferte anfordern →</button>
+              <button type="button" class="btn ghost" id="dossierBtn" data-i18n="docs.pdf">Dossier als PDF generieren</button>
+            </div>
+
+            <div class="notice" style="margin-top:16px" data-i18n="ck.notice">Deine Anfrage geht direkt an unser Projektteam. Antwort innert 24 Stunden.</div>
+          </form>
+
+          <div class="faq" style="padding:28px;border-radius:20px;background:#fff;border:1px solid var(--border)">
+            <h2 style="margin:0 0 6px;font-size:20px" data-i18n="faq.title">FAQ · Kurz &amp; hilfreich</h2>
+            <p style="margin:0 0 10px;color:var(--muted);font-size:14px" data-i18n="faq.sub">Die zwei häufigsten Fragen — kurz beantwortet.</p>
+            <details open>
+              <summary><span data-i18n="faq.q1">Muss ich beim Termin zuhause sein?</span><i class="fa-solid fa-plus"></i></summary>
+              <p data-i18n="faq.a1">Für die erste Einschätzung reichen Fotos und deine Angaben aus dem Fragebogen — da musst du nicht extra zuhause sein. Nur für die Vermessung und die Montage vereinbaren wir einen Termin, bei dem eine Person vor Ort sein sollte.</p>
+            </details>
+            <details>
+              <summary><span data-i18n="faq.q2">Welche Informationen brauche ich von meiner Stromrechnung?</span><i class="fa-solid fa-plus"></i></summary>
+              <p data-i18n="faq.a2">Am hilfreichsten ist der Jahresverbrauch in kWh — meist auf der Jahresabrechnung oder im Online-Portal. Dazu einfach deine PLZ. Wenn du unsicher bist, hilft auch ein Foto der Rechnung.</p>
+            </details>
+          </div>
+
         </div>
-      </div>
 
-      <div class="estStep" data-step="2">
-        <h3><i class="fa-solid fa-house-chimney"></i> <span data-i18n="w.s2.q">Was für ein Zuhause?</span></h3>
-        <div class="chips chips-single" data-name="homeType">
-          <button type="button" class="chip" data-value="Einfamilienhaus"><i class="fa-solid fa-house"></i> <span data-i18n="w.s2.o1">Einfamilienhaus</span></button>
-          <button type="button" class="chip" data-value="Reihenhaus"><i class="fa-solid fa-house-chimney"></i> <span data-i18n="w.s2.o2">Reihenhaus</span></button>
-          <button type="button" class="chip" data-value="Mehrfamilienhaus"><i class="fa-solid fa-building"></i> <span data-i18n="w.s2.o3">Mehrfamilienhaus</span></button>
-          <button type="button" class="chip" data-value="Gewerbe"><i class="fa-solid fa-briefcase"></i> <span data-i18n="w.s2.o4">Gewerbe</span></button>
-        </div>
-      </div>
+        <!-- RIGHT COLUMN -->
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          
+          <div class="emailcta" style="padding:28px;border-radius:20px;background:var(--sage-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+            <div>
+              <h3 style="margin:0 0 6px;font-size:20px" data-i18n="ck.email.title">Lieber direkt per E-Mail kontaktieren?</h3>
+              <p style="margin:0;color:var(--muted);font-size:14px;max-width:480px" data-i18n="ck.email.sub">Schreibe uns jederzeit direkt — wir antworten in der Regel innert 24 Stunden.</p>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn dark" href="https://mail.google.com/mail/?view=cm&fs=1&to=enervia.ch@gmail.com&su=Anfrage%20via%20enervia.ch" target="_blank" rel="noopener" data-i18n="ck.email.btn">E-Mail schreiben</a>
+              <a class="btn ghost" href="tel:+41779743914">+41 77 974 39 14</a>
+            </div>
+          </div>
+          
+          <div class="docs" style="padding:28px;border-radius:20px;background:#fff;border:1px solid var(--border)">
+            <h2 style="margin:0 0 6px;font-size:20px" data-i18n="docs.title">Dokumentation</h2>
+            <p style="margin:0 0 14px;color:var(--muted);font-size:14px" data-i18n="docs.sub">Fotos des Sicherungskastens, des Heizraums, des Daches und der Fassade helfen, dein Projekt genauer einzuschätzen.</p>
+            <div class="docsGrid">
+              <div><label data-i18n="docs.s3.elec">Sicherungskasten</label><input type="file" accept="image/*" multiple data-docs="elec"><div class="docNote" data-i18n="docs.s3.elec.note">Leistung, Alter, Sicherungsanzahl.</div></div>
+              <div><label data-i18n="docs.s3.heating">Heizraum</label><input type="file" accept="image/*" multiple data-docs="heating"><div class="docNote" data-i18n="docs.s3.heating.note">Boiler, Wärmepumpe, Alter.</div></div>
+              <div><label data-i18n="docs.s3.roof">Dach & Fassade</label><input type="file" accept="image/*" multiple data-docs="roof"><div class="docNote" data-i18n="docs.s3.roof.note">Zustand, Ausrichtung, Verschattung.</div></div>
+              <div><label data-i18n="docs.s3.facade">Fassade</label><input type="file" accept="image/*" multiple data-docs="facade"><div class="docNote" data-i18n="docs.s3.facade.note">Material, Isolation, Fenster.</div></div>
+            </div>
+            <div style="margin-top:14px;font-size:13px;color:var(--muted)" data-i18n="docs.ai.hint">KI-Auswertung: wir analysieren die Fotos nach Dachform, Anlagengrösse und Heiztyp.</div>
+          </div>
 
-      <div class="estStep" data-step="3">
-        <h3><i class="fa-solid fa-location-dot"></i> <span data-i18n="w.s3.q">Deine PLZ</span></h3>
-        <div class="estLabel" data-i18n="ck.label.plz">PLZ</div>
-        <input class="estInput" type="text" inputmode="numeric" id="plzInput" placeholder="8001" data-i18n-placeholder="ck.placeholder.plz">
-        <div class="estNote" data-i18n="w.s3.hint">Wir prüfen, ob dein Standort im Servicegebiet liegt.</div>
-        <div class="estErr" data-err></div>
-      </div>
+        </div>
 
-      <div class="estStep" data-step="4">
-        <h3><i class="fa-solid fa-bolt"></i> <span data-i18n="w.s4.q">Stromverbrauch pro Jahr?</span></h3>
-        <div class="chips chips-single" data-name="consumption">
-          <button type="button" class="chip" data-value="c1"><i class="fa-solid fa-temperature-low"></i> <span data-i18n="w.s4.o1">&lt; 3'000 kWh</span></button>
-          <button type="button" class="chip" data-value="c2"><i class="fa-solid fa-temperature-half"></i> <span data-i18n="w.s4.o2">3'001–5'000 kWh</span></button>
-          <button type="button" class="chip" data-value="c3"><i class="fa-solid fa-temperature-high"></i> <span data-i18n="w.s4.o3">5'001–8'000 kWh</span></button>
-          <button type="button" class="chip" data-value="c4"><i class="fa-solid fa-temperature-arrow-up"></i> <span data-i18n="w.s4.o4">&gt; 8'000 kWh</span></button>
-        </div>
-        <div class="estNote" data-i18n="w.s4.note">Typisch für 1–5 Personen im Haushalt.</div>
       </div>
-
-      <div class="estStep" data-step="5">
-        <h3><i class="fa-solid fa-plug"></i> <span data-i18n="w.s5.q">Bestehende Anlage?</span></h3>
-        <div class="chips chips-single" data-name="existing">
-          <button type="button" class="chip" data-value="Ja"><i class="fa-solid fa-check"></i> <span data-i18n="w.s5.o1">Ja</span></button>
-          <button type="button" class="chip" data-value="Nein"><i class="fa-solid fa-xmark"></i> <span data-i18n="w.s5.o2">Nein</span></button>
-          <button type="button" class="chip" data-value="Unsicher"><i class="fa-solid fa-question"></i> <span data-i18n="w.s5.o3">Nicht sicher</span></button>
-        </div>
-        <div class="estNote" data-i18n="w.s5.note">Für Kombi-Lösungen (neu + bestehend) besonders relevant.</div>
-      </div>
-
-      <div class="estStep" data-step="6">
-        <h3><i class="fa-solid fa-calendar-days"></i> <span data-i18n="w.s6.q">Wann soll es losgehen?</span></h3>
-        <div class="chips chips-single" data-name="timeline">
-          <button type="button" class="chip" data-value="sofort"><i class="fa-solid fa-rotate-left"></i> <span data-i18n="w.s6.o1">Sofort</span></button>
-          <button type="button" class="chip" data-value="1-3"><i class="fa-solid fa-calendar"></i> <span data-i18n="w.s6.o2">1–3 Monate</span></button>
-          <button type="button" class="chip" data-value="3-6"><i class="fa-solid fa-calendar-check"></i> <span data-i18n="w.s6.o3">3–6 Monate</span></button>
-          <button type="button" class="chip" data-value="6+"><i class="fa-solid fa-hourglass-half"></i> <span data-i18n="w.s6.o4">&gt; 6 Monate</span></button>
-        </div>
-      </div>
-
-      <div class="estStep" data-step="7">
-        <h3><i class="fa-solid fa-user"></i> <span data-i18n="w.s7.q">Deine Kontaktdaten für die Offerte</span></h3>
-        <p style="color:var(--muted); margin-top: 8px; margin-bottom: 20px; font-size: 14px;" data-i18n="w.s7.desc">Bitte teile uns deine Kontaktdaten mit, damit wir dir die massgeschneiderte Festofferte zustellen können.</p>
-        <div class="estGrid">
-          <div class="field"><label data-i18n="ck.label.firstName">Vorname</label><input class="estInput" id="fname" placeholder="Anna" data-i18n-placeholder="ck.placeholder.firstName"></div>
-          <div class="field"><label data-i18n="ck.label.lastName">Nachname</label><input class="estInput" id="lname" placeholder="Müller" data-i18n-placeholder="ck.placeholder.lastName"></div>
-          <div class="field"><label data-i18n="ck.label.phone">Telefon</label><input class="estInput" id="phone" placeholder="+41 79 000 00 00" data-i18n-placeholder="ck.placeholder.phone"></div>
-          <div class="field"><label data-i18n="ck.label.email">E-Mail</label><input class="estInput" id="email" type="email" placeholder="anna@example.ch" data-i18n-placeholder="ck.placeholder.email"></div>
-        </div>
-        <label class="consent"><input type="checkbox" id="consent"><span data-i18n="est.consent">Ich willige ein, kontaktiert zu werden und akzeptiere die Datenschutzbestimmungen (nDSG).</span></label>
-        <div class="estErr" data-err></div>
-      </div>
-
-      <div class="estNav">
-        <button type="button" class="back" id="estBack" data-i18n="est.back">← Zurück</button>
-        <button type="button" class="btn dark" id="estNext" data-i18n="est.next">Weiter →</button>
-        <button type="submit" class="btn green" id="estSubmit" style="display:none" data-i18n="ck.submit">Kostenlose Festofferte anfordern →</button>
-        <button type="button" class="btn ghost" id="dossierBtn" data-i18n="docs.pdf">Dossier als PDF generieren</button>
-      </div>
-
-      <div class="notice" style="margin-top:16px" data-i18n="ck.notice">Deine Anfrage geht direkt an unser Projektteam. Antwort innert 24 Stunden.</div>
-    </form>
-      <div class="emailcta" style="padding:28px;border-radius:20px;background:var(--sage-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
-        <div>
-          <h3 style="margin:0 0 6px;font-size:20px" data-i18n="ck.email.title">Lieber direkt per E-Mail kontaktieren?</h3>
-          <p style="margin:0;color:var(--muted);font-size:14px;max-width:480px" data-i18n="ck.email.sub">Schreibe uns jederzeit direkt — wir antworten in der Regel innert 24 Stunden.</p>
-        </div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn dark" href="https://mail.google.com/mail/?view=cm&fs=1&to=enervia.ch@gmail.com&su=Anfrage%20via%20enervia.ch" target="_blank" rel="noopener" data-i18n="ck.email.btn">E-Mail schreiben</a>
-          <a class="btn ghost" href="tel:+41779743914">+41 77 974 39 14</a>
-        </div>
-      </div>
-      <div class="faq" style="padding:28px;border-radius:20px;background:#fff;border:1px solid var(--border)">
-        <h2 style="margin:0 0 6px;font-size:20px" data-i18n="faq.title">FAQ · Kurz &amp; hilfreich</h2>
-        <p style="margin:0 0 10px;color:var(--muted);font-size:14px" data-i18n="faq.sub">Die zwei häufigsten Fragen — kurz beantwortet.</p>
-        <details open>
-          <summary><span data-i18n="faq.q1">Muss ich beim Termin zuhause sein?</span><i class="fa-solid fa-plus"></i></summary>
-          <p data-i18n="faq.a1">Für die erste Einschätzung reichen Fotos und deine Angaben aus dem Fragebogen — da musst du nicht extra zuhause sein. Nur für die Vermessung und die Montage vereinbaren wir einen Termin, bei dem eine Person vor Ort sein sollte.</p>
-        </details>
-        <details>
-          <summary><span data-i18n="faq.q2">Welche Informationen brauche ich von meiner Stromrechnung?</span><i class="fa-solid fa-plus"></i></summary>
-          <p data-i18n="faq.a2">Am hilfreichsten ist der Jahresverbrauch in kWh — meist auf der Jahresabrechnung oder im Online-Portal. Dazu einfach deine PLZ. Wenn du unsicher bist, hilft auch ein Foto der Rechnung.</p>
-        </details>
-      </div>
-      <div class="docs" style="padding:28px;border-radius:20px;background:#fff;border:1px solid var(--border)">
-        <h2 style="margin:0 0 6px;font-size:20px" data-i18n="docs.title">Dokumentation</h2>
-        <p style="margin:0 0 14px;color:var(--muted);font-size:14px" data-i18n="docs.sub">Fotos des Sicherungskastens, des Heizraums, des Daches und der Fassade helfen, dein Projekt genauer einzuschätzen.</p>
-        <div class="docsGrid">
-          <div><label data-i18n="docs.s3.elec">Sicherungskasten</label><input type="file" accept="image/*" multiple data-docs="elec"><div class="docNote" data-i18n="docs.s3.elec.note">Leistung, Alter, Sicherungsanzahl.</div></div>
-          <div><label data-i18n="docs.s3.heating">Heizraum</label><input type="file" accept="image/*" multiple data-docs="heating"><div class="docNote" data-i18n="docs.s3.heating.note">Boiler, Wärmepumpe, Alter.</div></div>
-          <div><label data-i18n="docs.s3.roof">Dach & Fassade</label><input type="file" accept="image/*" multiple data-docs="roof"><div class="docNote" data-i18n="docs.s3.roof.note">Zustand, Ausrichtung, Verschattung.</div></div>
-          <div><label data-i18n="docs.s3.facade">Fassade</label><input type="file" accept="image/*" multiple data-docs="facade"><div class="docNote" data-i18n="docs.s3.facade.note">Material, Isolation, Fenster.</div></div>
-        </div>
-        <div style="margin-top:14px;font-size:13px;color:var(--muted)" data-i18n="docs.ai.hint">KI-Auswertung: wir analysieren die Fotos nach Dachform, Anlagengrösse und Heiztyp.</div>
-      </div>
-    </div>
     </div>
   </section>
 </main>
@@ -265,7 +280,8 @@
     }
 
     function validate() {
-      if (pos === 0 && !val("service")) return t("est.need");
+      const chipSteps = { 0: "service", 1: "homeType", 3: "consumption", 4: "existing", 5: "timeline" };
+      if (chipSteps[pos] && !val(chipSteps[pos])) return t("est.select");
       if (pos === 2) {
         const plz = plzInput.value.trim();
         if (!/^\d{4}$/.test(plz)) return t("est.plz");
@@ -275,19 +291,31 @@
     }
 
     function goStep(n) {
-      if (n > pos) { const err = validate(); if (err) { const e = stepErr(); if (e) e.textContent = err; return; } }
+      if (n > pos) {
+        const err = validate();
+        if (err) {
+          const e = stepErr();
+          if (e) e.textContent = err;
+          const chips = form.querySelector(".estStep.on .chips");
+          if (chips) { chips.classList.remove("shake"); void chips.offsetWidth; chips.classList.add("shake"); }
+          return;
+        }
+      }
       pos = Math.max(0, Math.min(steps.length - 1, n));
       render();
     }
 
     next.addEventListener("click", () => goStep(pos + 1));
     back.addEventListener("click", () => goStep(pos - 1));
+    plzInput.addEventListener("input", () => { const e = form.querySelector(".estStep.on [data-err]"); if (e) e.textContent = ""; });
 
     form.querySelectorAll(".chips.chips-single").forEach(g => {
       g.addEventListener("click", (e) => {
         const b = e.target.closest(".chip"); if (!b) return;
         g.querySelectorAll(".chip").forEach(x => x.classList.remove("on"));
         b.classList.add("on");
+        const err = g.closest(".estStep") ? g.closest(".estStep").querySelector("[data-err]") : null;
+        if (err) err.textContent = "";
       });
     });
 

@@ -125,6 +125,8 @@ footer{background:#0f1111;color:#d5dfdb;padding:56px 0 28px}.footgrid{display:gr
   .estStep h3{font-size:26px;letter-spacing:-.02em;margin-bottom:6px;display:flex;align-items:center;gap:12px;color:var(--ink)}
   .estStep h3 i{color:var(--sage);font-size:22px;width:28px;text-align:center}
   .estErr{color:#b45309;font-size:14px;margin:12px 0 0;min-height:1em}
+.chips.shake{animation:shakeX .3s ease}
+@keyframes shakeX{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
   .estLabel{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#374151;margin:24px 0 10px;display:flex;align-items:center;gap:8px}
   .estLabel:first-of-type{margin-top:10px}
   .chips{display:flex;flex-wrap:wrap;gap:12px}
